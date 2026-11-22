@@ -1,0 +1,9 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import {reportedCapacityHTML,aircraftLoadsHTML,accommodationCardHTML,accommodationDetailsHTML} from '../site/facilities.js';
+const venues=JSON.parse(fs.readFileSync('data/skydiving/regions/us-ca-bay-area/venues.json'));
+const cal=venues.find(z=>z.id==='cal');
+test('telephone capacity and loads retain their date, uncertainty and source type in both languages',()=>{for(const lang of ['en','zh']){const html=reportedCapacityHTML(cal,lang)+aircraftLoadsHTML(cal,lang);for(const value of ['16–17','20','10','2026-11-22'])assert.ok(html.includes(value));assert.ok(!html.includes('https://'));assert.ok(!html.includes('Cessna'));assert.ok(html.includes(lang==='en'?'contributor report':'用户提供'));assert.ok(html.includes(lang==='en'?'not guaranteed':'并非保证'))}});
+test('confirmed camping and restroom availability stays distinct from explicitly absent showers',()=>{assert.equal(cal.accommodation.camping,true);assert.equal(cal.accommodation.vehicleCamping,true);assert.equal(cal.accommodation.restrooms,true);assert.equal(cal.accommodation.showers,false);const summary=accommodationCardHTML(cal,'en');assert.ok(summary.includes('Camping · Vehicle camping · Restrooms · No showers'));assert.ok(accommodationDetailsHTML(cal,'en').includes('Not available'));assert.ok(accommodationDetailsHTML(cal,'zh').includes('电话咨询'))});
+test('other venues do not inherit the telephone report or negative facilities',()=>{for(const z of venues.filter(z=>z.id!=='cal')){assert.equal(z.accommodation,null);assert.equal(z.aircraftOperations,null);assert.ok(accommodationCardHTML(z,'en').includes('Not documented'));assert.ok(!accommodationDetailsHTML(z,'en').includes('Not available'));assert.ok(!aircraftLoadsHTML(z,'en').includes('20'))}});

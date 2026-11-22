@@ -146,7 +146,9 @@
           }
         ]
       }
-    }
+    },
+    "aircraftOperations": null,
+    "accommodation": null
   },
   {
     "id": "cal",
@@ -291,6 +293,44 @@
           }
         ]
       }
+    },
+    "aircraftOperations": {
+      "passengerCapacity": {
+        "min": 16,
+        "max": 17,
+        "crewIncluded": null,
+        "aircraftModel": null
+      },
+      "dailyLoads": [
+        {
+          "season": "summer",
+          "approximate": 20
+        },
+        {
+          "season": "winter",
+          "approximate": 10
+        }
+      ],
+      "note": {
+        "zh": "架次取决于天气和日照，属于电话提供的大致情况，并非保证的每日班次或可预约名额。",
+        "en": "Loads depend on weather and daylight. These are approximate figures reported by phone, not guaranteed departures or booking availability."
+      },
+      "provenance": {
+        "kind": "phone",
+        "reportedAt": "2026-11-22",
+        "status": "contributor-report"
+      }
+    },
+    "accommodation": {
+      "camping": true,
+      "vehicleCamping": true,
+      "restrooms": true,
+      "showers": false,
+      "provenance": {
+        "kind": "phone",
+        "reportedAt": "2026-11-22",
+        "status": "contributor-report"
+      }
     }
   },
   {
@@ -426,7 +466,9 @@
           }
         ]
       }
-    }
+    },
+    "aircraftOperations": null,
+    "accommodation": null
   },
   {
     "id": "mon",
@@ -553,7 +595,9 @@
           }
         ]
       }
-    }
+    },
+    "aircraftOperations": null,
+    "accommodation": null
   },
   {
     "id": "golden-gate",
@@ -671,7 +715,9 @@
           }
         ]
       }
-    }
+    },
+    "aircraftOperations": null,
+    "accommodation": null
   },
   {
     "id": "skydance",
@@ -803,7 +849,9 @@
         ]
       }
     },
-    "tandemStatusSource": "https://skydanceskydiving.com/tandem-halo-skydiving/"
+    "tandemStatusSource": "https://skydanceskydiving.com/tandem-halo-skydiving/",
+    "aircraftOperations": null,
+    "accommodation": null
   },
   {
     "id": "norcal",
@@ -877,7 +925,9 @@
       "tandem"
     ],
     "email": "info@norcalskydiving.com",
-    "coordSource": "https://photon.komoot.io/api/?q=NorCal%20Skydiving&limit=3&lat=38&lon=-122"
+    "coordSource": "https://photon.komoot.io/api/?q=NorCal%20Skydiving&limit=3&lat=38&lon=-122",
+    "aircraftOperations": null,
+    "accommodation": null
   },
   {
     "id": "lodi",
@@ -1001,6 +1051,8 @@
       }
     },
     "tandemStatusSource": "https://skydivelodiparachutecenter.com/",
-    "coordSource": "https://photon.komoot.io/api/?q=Parachute%20Center%20Acampo&limit=3&lat=38&lon=-122"
+    "coordSource": "https://photon.komoot.io/api/?q=Parachute%20Center%20Acampo&limit=3&lat=38&lon=-122",
+    "aircraftOperations": null,
+    "accommodation": null
   }
 ]

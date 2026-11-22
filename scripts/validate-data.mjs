@@ -18,6 +18,7 @@ function common(z,label,region){
  check(/^[+0-9() .-]+$/.test(z.phone),`${label}: invalid phone`);
  if(z.email!==undefined)check(/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(z.email),`${label}: invalid email`);
 }
+function phoneProvenance(value,label){check(value?.kind==='phone'&&value.status==='contributor-report',label+': expected contributor phone provenance');date(value.reportedAt,label)}
 export function validateCatalog(root=defaultRoot){
  const read=file=>JSON.parse(fs.readFileSync(path.join(root,file),'utf8'));
  const catalog=read('data/catalog.json');check(catalog.schemaVersion===1,'Unsupported catalog schema');check(Array.isArray(catalog.sports),'Expected sports array');
@@ -34,6 +35,8 @@ export function validateCatalog(root=defaultRoot){
    const localOutdoorIds=new Set(venues.map(v=>v.id));
    for(const z of [...venues,...indoor]){common(z,z.id,id);check(!venueIds.has(z.id),'Duplicate venue id: '+z.id);venueIds.add(z.id);venueCount++}
    for(const z of venues){
+    if(z.aircraftOperations){const o=z.aircraftOperations,c=o.passengerCapacity;phoneProvenance(o.provenance,z.id+'.aircraftOperations');check(c&&Number.isInteger(c.min)&&Number.isInteger(c.max)&&c.min>0&&c.max>=c.min,z.id+': invalid reported capacity');check(c.crewIncluded===null||typeof c.crewIncluded==='boolean',z.id+': invalid crew inclusion');check(c.aircraftModel===null||typeof c.aircraftModel==='string',z.id+': invalid reported aircraft');bi(o.note,z.id+'.loads note');check(Array.isArray(o.dailyLoads)&&new Set(o.dailyLoads.map(r=>r.season)).size===o.dailyLoads.length,z.id+': duplicate load seasons');for(const row of o.dailyLoads)check(['summer','winter'].includes(row.season)&&Number.isInteger(row.approximate)&&row.approximate>0,z.id+': invalid seasonal loads')}
+    if(z.accommodation){const a=z.accommodation;phoneProvenance(a.provenance,z.id+'.accommodation');for(const key of ['camping','vehicleCamping','restrooms','showers'])check(a[key]===null||typeof a[key]==='boolean',z.id+': invalid accommodation '+key)}
     if(z.documentedAudiences)check(Array.isArray(z.documentedAudiences)&&z.documentedAudiences.length>0&&z.documentedAudiences.every(v=>['tandem','sport'].includes(v)),`${z.id}: invalid documented audiences`);
     if(z.operatingHours){const h=z.operatingHours;check(['dropzone','business','flights','jumping'].includes(h.kind),`${z.id}: invalid hours kind`);url(h.source,z.id+'.hours');date(h.reviewedAt,z.id+'.hours');try{new Intl.DateTimeFormat('en',{timeZone:h.timeZone})}catch{throw new Error(z.id+': invalid hours timezone')}for(const day of ['sun','mon','tue','wed','thu','fri','sat']){const entries=h.weekly?.[day];check(entries===null||Array.isArray(entries),`${z.id}: missing weekday ${day}`);for(const w of entries||[]){check(/^([01]\d|2[0-3]):[0-5]\d$/.test(w.open)&&/^([01]\d|2[0-3]):[0-5]\d$/.test(w.close)&&w.open<w.close,`${z.id}: invalid hours interval`)}}}
     check(/^[A-Z]{3}$/.test(z.currency),`${z.id}: ISO currency required`);check(z.minimum===null||(Number.isInteger(z.minimum)&&z.minimum>=2&&z.minimum<=5),`${z.id}: invalid license minimum`);
