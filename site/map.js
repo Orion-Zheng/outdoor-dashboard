@@ -1,3 +1,4 @@
+import {routeSummary} from './routing.js';
 let map=null,selected='road';
 export function disposeVenueMap(){if(map){map.remove();map=null}}
 export function mountVenueMap(host,{locations,origin,originText,lang,indoor,onSelect}){
@@ -13,7 +14,7 @@ export function mountVenueMap(host,{locations,origin,originText,lang,indoor,onSe
  const points=locations.map(z=>z.coord);
  for(const z of locations){
   const marker=L.circleMarker(z.coord,{radius:7,weight:2,color:'#fff',fillColor:'#226446',fillOpacity:1}).addTo(map);
-  const label=document.createElement('span');label.textContent=z.name;
+  const label=document.createElement('span');label.textContent=z.name+(origin?' · '+routeSummary(origin,z,lang):'');
   marker.bindTooltip(label,{direction:'top'}).on('click',()=>onSelect(z.id));
   const element=marker.getElement();if(element){element.setAttribute('tabindex','0');element.setAttribute('role','button');element.setAttribute('aria-label',(zh?'查看 ':'View ')+z.name);element.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();onSelect(z.id)}})}
  }

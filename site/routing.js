@@ -17,9 +17,9 @@ export function parseRouteTable(data,count){
   return Number.isFinite(distance)&&distance>=0&&Number.isFinite(duration)&&duration>=0?{status:'ok',distance,duration}:{status:'unavailable'};
  });
 }
-export async function ensureRoutes(origin,venues){
+export async function ensureRoutes(origin,venues,{force=false}={}){
  if(!origin||!venues.length)return false;
- const pending=venues.filter(z=>!cache.has(routeKey(origin,z))||Date.now()-cache.get(routeKey(origin,z)).fetched>1800000);
+ const pending=venues.filter(z=>force||!cache.has(routeKey(origin,z))||Date.now()-cache.get(routeKey(origin,z)).fetched>1800000);
  if(!pending.length)return false;
  const fetched=Date.now();for(const z of pending)cache.set(routeKey(origin,z),{status:'loading',fetched});
  const work=async()=>{
