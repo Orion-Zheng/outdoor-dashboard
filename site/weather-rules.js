@@ -80,13 +80,12 @@ export function assessForecast(data,context,nowSeconds=Date.now()/1000,retrieved
  const window=planningWindow(data,context,nowSeconds);
  const points=window?allPoints.filter(p=>p.time>window.start&&p.time-3600<window.end).map(p=>({...p,intervalStart:Math.max(p.time-3600,window.start),intervalEnd:Math.min(p.time,window.end),planning:true})):[];
  const otherPoints=allPoints.filter(p=>p.time>nowSeconds&&p.time<=horizonEnd).map(p=>({...p,intervalStart:Math.max(nowSeconds,p.time-3600),intervalEnd:p.time}));
- const chartPoints=window?allPoints.filter(p=>p.time>=Math.floor(window.start/3600)*3600&&p.time<=Math.ceil(window.end/3600)*3600):[];
  const arrival=Number.isFinite(context.driveDurationSeconds)&&context.driveDurationSeconds>=0?nowSeconds+context.driveDurationSeconds:null;
  const arrivalIndex=arrival===null||!window||arrival<window.start||arrival>=window.end?-1:points.findIndex(p=>arrival>=p.intervalStart&&arrival<p.intervalEnd);
  const firstDanger=points.find(p=>p.tone==='danger'),afterArrival=arrival===null||arrivalIndex<0?null:points.find(p=>p.intervalEnd>arrival&&p.tone==='danger');
  const probabilities=points.map(p=>p.probability).filter(Number.isFinite),coverage=points.reduce((sum,p)=>sum+p.intervalEnd-p.intervalStart,0);
  const partial=!window||coverage<window.end-window.start-1||points.some(p=>p.incomplete);
- return {points,chartPoints,otherPoints,window,fresh,partial,tone:!fresh||!points.length?'unknown':firstDanger?'danger':points.some(p=>p.tone==='caution'||p.tone==='unknown')?'caution':'neutral',firstDanger,afterArrival,arrival,arrivalIndex,maxProbability:probabilities.length?Math.max(...probabilities):null};
+ return {points,otherPoints,window,fresh,partial,tone:!fresh||!points.length?'unknown':firstDanger?'danger':points.some(p=>p.tone==='caution'||p.tone==='unknown')?'caution':'neutral',firstDanger,afterArrival,arrival,arrivalIndex,maxProbability:probabilities.length?Math.max(...probabilities):null};
 }
 
 export function windGroupName(reference,lang){return reference.key==='student'?(lang==='zh'?'单人学生（方翼）':'Solo student (ram-air)'):reference.key==='tandem'?(lang==='zh'?'双人跳':'Tandem'):reference.label+(lang==='zh'?' 证':' license')}
