@@ -1,0 +1,23 @@
+name: Add or correct information / 补充或更正资料
+description: Suggest a venue, price, course or factual correction without editing code.
+title: "[Information] "
+body:
+  - type: input
+    id: venue
+    attributes:
+      label: Venue and region / 场地与地区
+    validations:
+      required: true
+  - type: textarea
+    id: change
+    attributes:
+      label: Proposed correction / 建议更改
+      description: Include dates, currency, units and conditions; mark unknown details.
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Public sources and date checked / 公开来源与核查日期
+    validations:
+      required: true

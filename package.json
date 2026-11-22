@@ -1,0 +1,15 @@
+{
+  "name": "outdoor-dashboard",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Community-reviewed outdoor venue and training information",
+  "engines": {"node": ">=22"},
+  "scripts": {
+    "check": "node scripts/validate-data.mjs && node --test tests/*.test.mjs",
+    "build": "node scripts/build.mjs",
+    "dev": "node scripts/build.mjs && node scripts/serve.mjs",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {"leaflet": "1.9.4"}
+}

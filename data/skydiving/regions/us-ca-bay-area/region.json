@@ -1,0 +1,45 @@
+{
+  "id": "us-ca-bay-area",
+  "name": {
+    "zh": "旧金山湾区及周边",
+    "en": "San Francisco Bay Area & nearby"
+  },
+  "country": "US",
+  "subdivision": "CA",
+  "origins": [
+    {
+      "name": "San Francisco",
+      "label": {
+        "zh": "旧金山",
+        "en": "San Francisco"
+      },
+      "coord": [
+        37.7749,
+        -122.4194
+      ]
+    },
+    {
+      "name": "San Jose",
+      "label": {
+        "zh": "圣何塞",
+        "en": "San Jose"
+      },
+      "coord": [
+        37.3382,
+        -121.8863
+      ]
+    },
+    {
+      "name": "Oakland",
+      "label": {
+        "zh": "奥克兰",
+        "en": "Oakland"
+      },
+      "coord": [
+        37.8044,
+        -122.2712
+      ]
+    }
+  ],
+  "certificationSystem": "USPA"
+}

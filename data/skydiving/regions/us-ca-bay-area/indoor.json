@@ -1,0 +1,23 @@
+[
+  {
+    "id": "unioncity",
+    "name": "iFLY San Francisco",
+    "city": "Union City",
+    "region": "us-ca-bay-area",
+    "country": "US",
+    "subdivision": "CA",
+    "address": "31310 Alvarado-Niles Rd, Union City, CA 94587",
+    "coord": [
+      37.602,
+      -122.068
+    ],
+    "phone": "5104894359",
+    "source": "https://www.iflyworld.com/sfbay",
+    "sportSource": "https://www.iflyworld.com/sport",
+    "reviewedAt": "2026-11-21",
+    "experienceNote": {
+      "zh": "每次飞行约 60 秒；10 次飞行为最多 5 人共享的全组总数，并非每人 10 次。价格随日期与套餐变化。",
+      "en": "Each flight is about 60 seconds. Ten flights is the group total for up to five people, not per person. Rates vary by date and package."
+    }
+  }
+]

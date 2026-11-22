@@ -1,0 +1,10 @@
+import test from 'node:test';
+import assert from 'node:assert/strict';
+import {assessWeather,assessWind,STATUTE_MILE_M as MI} from '../site/weather-rules.js';
+const now=Date.now()/1000,context={role:'sport',level:2};
+const data=(current={},visibility=10000,time=now)=>({current:{time,wind_speed_10m:4,wind_gusts_10m:6,weather_code:0,precipitation:0,cloud_cover:0,...current},hourly:{time:[time],visibility:[visibility]}});
+test('rain, thunderstorm and fog override light winds',()=>{for(const weather_code of [61,95,45])assert.equal(assessWeather(data({weather_code}),context,now).tone,'danger')});
+test('overcast and missing cloud bases cannot produce overall clearance',()=>{assert.equal(assessWeather(data({weather_code:3,cloud_cover:100}),context,now).tone,'caution');assert.equal(assessWeather(data(),context,now).tone,'caution')});
+test('visibility boundaries remain exact',()=>{assert.equal(assessWeather(data({},3*MI-.01),context,now).visibilityCode,'below3');assert.equal(assessWeather(data({},3*MI),context,now).visibilityCode,'below5');assert.equal(assessWeather(data({},5*MI),context,now).visibilityCode,'atLeast5')});
+test('stale weather remains unknown',()=>assert.equal(assessWeather(data({weather_code:95},10000,now-7201),context,now).tone,'unknown'));
+test('20 knot reference comparison preserves per-license sources',()=>{for(const [level,tone] of [[0,'danger'],[2,'danger'],[3,'danger'],[4,'clear'],[5,'clear']])assert.equal(assessWind({wind:20,gust:20,ageSeconds:0,role:'sport',level}).tone,tone)});

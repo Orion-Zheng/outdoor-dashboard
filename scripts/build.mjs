@@ -1,0 +1,13 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import {fileURLToPath} from 'node:url';
+import {execFileSync} from 'node:child_process';
+import {validateCatalog} from './validate-data.mjs';
+const root=path.resolve(path.dirname(fileURLToPath(import.meta.url)),'..');
+console.log('Validating catalog:',validateCatalog(root));
+for(const file of fs.readdirSync(path.join(root,'site')).filter(f=>f.endsWith('.js')))execFileSync(process.execPath,['--check',path.join(root,'site',file)]);
+const dist=path.join(root,'dist');fs.rmSync(dist,{recursive:true,force:true});fs.cpSync(path.join(root,'site'),dist,{recursive:true});fs.cpSync(path.join(root,'data'),path.join(dist,'data'),{recursive:true});
+const vendor=path.join(dist,'vendor/leaflet');fs.mkdirSync(vendor,{recursive:true});
+for(const file of ['leaflet.css','leaflet.js'])fs.copyFileSync(path.join(root,'node_modules/leaflet/dist',file),path.join(vendor,file));
+fs.cpSync(path.join(root,'node_modules/leaflet/dist/images'),path.join(vendor,'images'),{recursive:true});fs.copyFileSync(path.join(root,'node_modules/leaflet/LICENSE'),path.join(vendor,'LICENSE'));
+fs.writeFileSync(path.join(dist,'.nojekyll'),'');console.log('Built dist/ (relative URLs support GitHub Pages repository paths).');

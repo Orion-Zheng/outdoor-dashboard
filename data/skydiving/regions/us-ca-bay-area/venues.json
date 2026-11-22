@@ -1,0 +1,393 @@
+[
+  {
+    "id": "bas",
+    "name": "Bay Area Skydiving",
+    "city": "Byron",
+    "region": "us-ca-bay-area",
+    "address": "6901 Falcon Way, Byron, CA 94514",
+    "coord": [
+      37.8285,
+      -121.6258
+    ],
+    "phone": "9256347575",
+    "source": "https://www.bayareaskydiving.com/experienced",
+    "eligSource": "https://www.bayareaskydiving.com/experienced",
+    "addrSource": "https://www.bayareaskydiving.com/contact",
+    "minimum": null,
+    "plane": {
+      "zh": "Caravan 208 Blackhawk · 官网 18 席",
+      "en": "Caravan 208 Blackhawk · 18 seats published"
+    },
+    "planeName": "Caravan 208 · Blackhawk conversion",
+    "planeSource": "https://www.bayareaskydiving.com/experienced",
+    "eligibility": {
+      "zh": "欢迎持证者；最低证照、近期记录及额外跳数要求待确认",
+      "en": "Licensed jumpers welcomed; minimum license, currency and additional jump requirements unverified"
+    },
+    "learn": {
+      "zh": "AFF 首跳课 / A-license progression",
+      "en": "AFF first-jump course / A-license progression"
+    },
+    "learnPrice": 390,
+    "learnUnit": {
+      "zh": "首跳课",
+      "en": "first-jump course"
+    },
+    "learnSource": "https://www.bayareaskydiving.com/aff-pricing",
+    "learnNote": {
+      "zh": "USD 390 首跳课含地面课；AFF 与完整 A 证套餐另行询价。学生装备包含；solo 打包费不包含。",
+      "en": "USD 390 first-jump course includes ground school. AFF and full A-license packages require a quote. Student gear included; solo pack jobs excluded."
+    },
+    "note": {
+      "zh": "持证跳票：13,000 ft USD 37；15,000 ft USD 41；18,000 ft USD 58。最低证照、近期记录及附加条件需先联系确认。",
+      "en": "Lift tickets: 13,000 ft USD 37; 15,000 ft USD 41; 18,000 ft USD 58. Confirm minimum license, currency and additional requirements before visiting."
+    },
+    "rentalNote": {
+      "zh": "持证者租赁供应、适用资格、费用和包含关系尚未核实；不计算确定总价。",
+      "en": "Licensed rental availability, eligibility, rate and inclusions are unverified; no total is calculated."
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [
+      "Open to licensed jumpers"
+    ],
+    "tandemSource": "https://www.bayareaskydiving.com/pricing",
+    "tandemNote": {
+      "zh": "13,000 ft 官网秋季促销 USD 198（常规 USD 248）；截止日期未公布，请确认。18,000 ft 为 9 点出发；200 lb 以上另收体重附加费。",
+      "en": "13,000 ft fall offer USD 198 (regular USD 248); end date unpublished, confirm. 18,000 ft departs at 9 am; weight surcharges above 200 lb."
+    },
+    "affGraduateAccepted": true,
+    "tandemPrices": [
+      {
+        "altitude": 13000,
+        "price": 198,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "秋季促销 · 常规 $248",
+          "en": "Fall offer · regular $248"
+        }
+      },
+      {
+        "altitude": 15000,
+        "price": 298,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "—",
+          "en": "—"
+        }
+      },
+      {
+        "altitude": 18000,
+        "price": 368,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "9 点出发",
+          "en": "9 am departure"
+        }
+      }
+    ],
+    "liftPrices": [
+      {
+        "altitude": 13000,
+        "own": 37,
+        "rental": null
+      },
+      {
+        "altitude": 15000,
+        "own": 41,
+        "rental": null
+      },
+      {
+        "altitude": 18000,
+        "own": 58,
+        "rental": null
+      }
+    ],
+    "altitudeReference": null,
+    "priceYear": 2026
+  },
+  {
+    "id": "cal",
+    "name": "Skydive California",
+    "city": "Tracy",
+    "region": "us-ca-bay-area",
+    "address": "25001 Kasson Road, Tracy, CA 95304",
+    "coord": [
+      37.72915,
+      -121.33223
+    ],
+    "phone": "2098357474",
+    "source": "https://skydivecalifornia.com/prices/",
+    "eligSource": "https://skydivecalifornia.com/experienced/",
+    "addrSource": "https://skydivecalifornia.com/contact/directions/",
+    "minimum": 2,
+    "plane": {
+      "zh": "Caravan / Cessna · 载员未公开",
+      "en": "Caravan / Cessna · capacity unpublished"
+    },
+    "planeName": "Caravan / Cessna 182",
+    "planeSource": "https://skydivecalifornia.com/experienced/",
+    "eligibility": {
+      "zh": "A 证或同等资质 · 有效会员 · AAD · 有效备伞",
+      "en": "A license or equivalent · active membership · AAD · in-date reserve"
+    },
+    "learn": {
+      "zh": "AFF / A-license 路径",
+      "en": "AFF / A-license pathway"
+    },
+    "learnPrice": 2970,
+    "learnNote": {
+      "zh": "25 跳组合套餐；重跳另计，完整包含项请确认。",
+      "en": "25-jump combined package; repeats extra. Confirm full inclusions."
+    },
+    "note": {
+      "zh": "携带 logbook；近期记录与装备仍需基地审核。跳票对应高度未在价目表绑定，请确认。",
+      "en": "Bring your logbook; currency and gear require review. Rate page does not bind ticket price to altitude; confirm."
+    },
+    "rentalNote": {
+      "zh": "USD 90 / 跳为跳票含租赁；适用装备与可用尺码需确认。",
+      "en": "USD 90 / jump includes lift and rental; confirm sizing and eligibility."
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [
+      "Licensed skydivers of all disciplines are welcome.",
+      "You must be approved by the DZO if you plan on wearing a camera."
+    ],
+    "tandemSource": "https://skydivecalifornia.com/prices/",
+    "learnSource": "https://skydivecalifornia.com/prices/",
+    "tandemNote": {
+      "zh": "10,000 ft 仅周五；预约押金 USD 50；5 人及以上每人减 USD 10。",
+      "en": "10,000 ft Friday only; USD 50 booking deposit; groups of 5+ save USD 10 each."
+    },
+    "affGraduateAccepted": true,
+    "tandemPrices": [
+      {
+        "altitude": 10000,
+        "price": 199,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "仅周五",
+          "en": "Friday only"
+        }
+      },
+      {
+        "altitude": 13000,
+        "price": 249,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "—",
+          "en": "—"
+        }
+      },
+      {
+        "altitude": 15000,
+        "price": 299,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "—",
+          "en": "—"
+        }
+      },
+      {
+        "altitude": 18000,
+        "price": 365,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "—",
+          "en": "—"
+        }
+      }
+    ],
+    "liftPrices": [
+      {
+        "altitude": null,
+        "own": 40,
+        "rental": 90
+      }
+    ],
+    "altitudeReference": null,
+    "priceYear": 2026
+  },
+  {
+    "id": "svs",
+    "name": "Silicon Valley Skydiving",
+    "city": "San Martin",
+    "region": "us-ca-bay-area",
+    "address": "13030 Murphy Avenue, San Martin, CA 95046",
+    "coord": [
+      37.07792,
+      -121.59875
+    ],
+    "phone": "8003865867",
+    "source": "https://siliconvalleyskydiving.com/licensed/",
+    "eligSource": "https://siliconvalleyskydiving.com/licensed/",
+    "addrSource": "https://siliconvalleyskydiving.com/about-us/",
+    "minimum": 2,
+    "plane": {
+      "zh": "机型 / 载员待确认",
+      "en": "Aircraft / capacity unverified"
+    },
+    "planeName": "PAC 750XL",
+    "planeSource": "https://siliconvalleyskydiving.com/FAQ/",
+    "eligibility": {
+      "zh": "USPA 执照；本基地 Solo 学生可参与 · 外来学生待确认",
+      "en": "USPA license; local Solo students accepted · visiting students unverified"
+    },
+    "learn": {
+      "zh": "AFF 入门训练",
+      "en": "AFF training"
+    },
+    "learnPrice": null,
+    "learnNote": {
+      "zh": "需联系训练中心；Hollister 为训练服务点，不是跳伞地点。",
+      "en": "Contact the training center; Hollister is a training facility, not the jump location."
+    },
+    "note": {
+      "zh": "持证价目表标注 2023 年，现价待确认；现金价，其他付款方式另加 5%。",
+      "en": "Licensed rate table is labeled 2023; confirm current rates. Cash pricing; other payments +5%."
+    },
+    "rentalNote": {
+      "zh": "当前租赁供应、学生/访客资格和计费单位待确认；不计算总价。",
+      "en": "Rental availability, visiting/student eligibility and billing unit unverified; no total calculated."
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [
+      "Experienced and Licensed Skydivers Welcome!"
+    ],
+    "tandemSource": "https://siliconvalleyskydiving.com/skydiving-pricing/",
+    "learnSource": "https://siliconvalleyskydiving.com/learn-to-skydive/",
+    "tandemNote": {
+      "zh": "13,000 ft 工作日 USD 228 / 周末 USD 248；现金价，其他付款 +5%；200 lb 以上有附加费。",
+      "en": "13,000 ft weekday USD 228 / weekend USD 248; cash rate, other payments +5%; surcharge above 200 lb."
+    },
+    "affGraduateAccepted": true,
+    "tandemPrices": [
+      {
+        "altitude": 8000,
+        "price": 188,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "—",
+          "en": "—"
+        }
+      },
+      {
+        "altitude": 13000,
+        "price": 228,
+        "alternatePrice": 248,
+        "condition": {
+          "zh": "工作日 / 周末",
+          "en": "Weekday / weekend"
+        }
+      },
+      {
+        "altitude": 18000,
+        "price": 348,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "—",
+          "en": "—"
+        }
+      }
+    ],
+    "liftPrices": [
+      {
+        "altitude": 13000,
+        "own": 40,
+        "rental": null
+      },
+      {
+        "altitude": 18000,
+        "own": 58,
+        "rental": null
+      }
+    ],
+    "altitudeReference": null,
+    "priceYear": 2023
+  },
+  {
+    "id": "mon",
+    "name": "Skydive Monterey Bay",
+    "city": "Marina",
+    "region": "us-ca-bay-area",
+    "address": "721 Neeson Road, Marina, CA 93933",
+    "coord": [
+      36.681,
+      -121.763
+    ],
+    "phone": "8313843483",
+    "source": "https://skydivemontereybay.com/licensed-skydiver/",
+    "eligSource": "https://skydivemontereybay.com/licensed-skydiver/",
+    "addrSource": "https://skydivemontereybay.com/licensed-skydiver/",
+    "minimum": 3,
+    "plane": {
+      "zh": "Super King Air 200 · 载员未公开",
+      "en": "Super King Air 200 · capacity unpublished"
+    },
+    "planeName": "Super King Air 200",
+    "planeSource": "https://skydivemontereybay.com/licensed-skydiver/",
+    "eligibility": {
+      "zh": "B 证及以上 · ≥50 跳 · 90 天内跳过 · 必须自带装备",
+      "en": "B license+ · 50+ jumps · jumped within 90 days · own gear required"
+    },
+    "learn": {
+      "zh": "7 级 AFF 课程",
+      "en": "7-level AFF program"
+    },
+    "learnPrice": 1965,
+    "learnNote": {
+      "zh": "含地面课程、7 跳及装备；整套预付价 USD 1,810，重跳另计；需先完成双人体验。",
+      "en": "Ground school, 7 jumps and gear; USD 1,810 prepaid, repeats extra; prior tandem required."
+    },
+    "note": {
+      "zh": "Fun load 出发前需联系，审核资质并安排到场时间；高度为 MSL。",
+      "en": "Call before visiting for prequalification and arrival time; altitude is MSL."
+    },
+    "rentalNote": {
+      "zh": "持证 Fun jump 不提供租赁装备。AFF 学生装备单独安排。",
+      "en": "No rental gear for licensed fun jumps. AFF student equipment is handled separately."
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [
+      "Skydive Monterey Bay welcomes experienced, “B” licensed, and higher, skydivers"
+    ],
+    "tandemSource": "https://skydivemontereybay.com/",
+    "learnSource": "https://skydivemontereybay.com/skydive-license/",
+    "tandemNote": {
+      "zh": "体验报价尚未整理；请查官网。",
+      "en": "Tandem rates not documented; check the official site."
+    },
+    "affGraduateAccepted": false,
+    "tandemPrices": [],
+    "liftPrices": [
+      {
+        "altitude": 10000,
+        "own": 30,
+        "rental": false
+      },
+      {
+        "altitude": 15000,
+        "own": 35,
+        "rental": false
+      },
+      {
+        "altitude": 18000,
+        "own": 35,
+        "rental": false
+      }
+    ],
+    "altitudeReference": "MSL",
+    "priceYear": 2026
+  }
+]

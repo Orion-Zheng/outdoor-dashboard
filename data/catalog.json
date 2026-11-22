@@ -1,0 +1,34 @@
+{
+  "schemaVersion": 1,
+  "sports": [
+    {
+      "id": "skydiving",
+      "name": {
+        "zh": "跳伞",
+        "en": "Skydiving"
+      },
+      "status": "active",
+      "regions": [
+        "us-ca-bay-area"
+      ]
+    },
+    {
+      "id": "scuba-diving",
+      "name": {
+        "zh": "水肺潜水",
+        "en": "Scuba diving"
+      },
+      "status": "planned",
+      "regions": []
+    },
+    {
+      "id": "skiing",
+      "name": {
+        "zh": "滑雪",
+        "en": "Skiing"
+      },
+      "status": "planned",
+      "regions": []
+    }
+  ]
+}

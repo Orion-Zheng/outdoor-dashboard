@@ -1,0 +1,380 @@
+[
+  {
+    "id": "aff",
+    "zone": "cal",
+    "min": 0,
+    "max": 0,
+    "kind": "license",
+    "title": {
+      "zh": "AFF · 从地面课到独立自由落体",
+      "en": "AFF · Ground school to solo freefall"
+    },
+    "price": 1870,
+    "unit": {
+      "zh": "/ 7 跳套餐",
+      "en": "/ 7-jump package"
+    },
+    "note": {
+      "zh": "不是完整 A 证套餐；重跳不包含。学生装备及包含项预订前确认。",
+      "en": "Not a complete A-license package; repeats excluded. Confirm student gear and inclusions."
+    },
+    "source": "https://skydivecalifornia.com/prices/",
+    "tags": {
+      "zh": "入门 · AFF",
+      "en": "Beginner · AFF"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "fulla",
+    "zone": "cal",
+    "min": 0,
+    "max": 0,
+    "kind": "license",
+    "title": {
+      "zh": "完整 A-license 学习路径",
+      "en": "Combined AFF / A-license pathway"
+    },
+    "price": 2970,
+    "unit": {
+      "zh": "/ 25 跳套餐",
+      "en": "/ 25-jump package"
+    },
+    "note": {
+      "zh": "课程完成仍需满足执照申请与考核要求；重跳及完整费用包含项请确认。",
+      "en": "Course completion is separate from license issuance; confirm application, repeats and full inclusions."
+    },
+    "source": "https://skydivecalifornia.com/prices/",
+    "tags": {
+      "zh": "未开始 · A-license",
+      "en": "New student · A license"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "posta",
+    "zone": "cal",
+    "min": 1,
+    "max": 1,
+    "kind": "license",
+    "title": {
+      "zh": "AFF 之后 · A-license progression",
+      "en": "After AFF · A-license progression"
+    },
+    "price": 2050,
+    "unit": {
+      "zh": "/ 18 跳套餐",
+      "en": "/ 18-jump package"
+    },
+    "note": {
+      "zh": "先完成 AFF；含 5 次 coach、毕业检查跳、12 次 solo 及租赁装备。外来学生记录需审核。",
+      "en": "AFF prerequisite; 5 coached jumps, check dive, 12 solo jumps and rental gear. Visiting student records need review."
+    },
+    "source": "https://skydivecalifornia.com/prices/",
+    "tags": {
+      "zh": "AFF 毕业 · 尚未拿 A 证",
+      "en": "AFF graduate · pre-A"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "b",
+    "zone": "cal",
+    "min": 2,
+    "max": 2,
+    "kind": "license",
+    "title": {
+      "zh": "B-license 进阶组合",
+      "en": "B-license progression package"
+    },
+    "price": 2650,
+    "unit": {
+      "zh": "/ 25 跳套餐",
+      "en": "/ 25-jump package"
+    },
+    "note": {
+      "zh": "需完成 AFF/A 路径；含租赁装备、打包课、伞控课及水训。完成套餐不等于自动获得 B 证。",
+      "en": "AFF/A prerequisite; rental gear, packing, canopy course and water training. Completion does not automatically issue a B license."
+    },
+    "source": "https://skydivecalifornia.com/prices/",
+    "tags": {
+      "zh": "A-license · 考 B 证",
+      "en": "A license · toward B"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "coach",
+    "zone": "cal",
+    "min": 1,
+    "max": 5,
+    "kind": "skills",
+    "title": {
+      "zh": "Coach jump · 基础技能",
+      "en": "Coach jump · Core skills"
+    },
+    "price": 200,
+    "unit": {
+      "zh": "/ 跳，含租赁",
+      "en": "/ jump incl. rental"
+    },
+    "note": {
+      "zh": "官网公开 coach + rental 价；具体技能、教练安排和学生适用性需确认。不作为 tracking 专项报价。",
+      "en": "Published coach + rental rate; confirm skill, coach and student eligibility. Not a tracking-specific quote."
+    },
+    "source": "https://skydivecalifornia.com/prices/",
+    "tags": {
+      "zh": "学生 / 持证 · 资格待确认",
+      "en": "Student / licensed · confirm eligibility"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "canopy",
+    "zone": "svs",
+    "min": 2,
+    "max": 5,
+    "kind": "skills",
+    "title": {
+      "zh": "Canopy piloting · 伞控",
+      "en": "Canopy piloting"
+    },
+    "price": null,
+    "unit": {
+      "zh": "专项课程询价",
+      "en": "Ask for course pricing"
+    },
+    "note": {
+      "zh": "可用于 B 证相关伞控训练。官网仅提供意向登记，非报名确认；先修条件、跳数和费用需询问。",
+      "en": "Can support B-license canopy training. Interest form only, not confirmed enrollment; ask about prerequisites, jumps and fees."
+    },
+    "source": "https://siliconvalleyskydiving.com/licensed/",
+    "tags": {
+      "zh": "A / B+ · 伞控 / B 证",
+      "en": "A / B+ · canopy / B progression"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "angle",
+    "zone": "svs",
+    "min": 2,
+    "max": 5,
+    "kind": "skills",
+    "title": {
+      "zh": "Tracking & angle · 移动飞行",
+      "en": "Tracking & angle flight"
+    },
+    "price": null,
+    "unit": {
+      "zh": "课程与资格待确认",
+      "en": "Course and eligibility unverified"
+    },
+    "note": {
+      "zh": "官网列有训练方向；未核实当前可报名班次、最低跳数、教练签注或专项价格。A/B 证本身不代表可参加。",
+      "en": "Training direction is listed; current dates, minimum jumps, endorsements and specific rate unverified. An A/B license alone does not qualify you."
+    },
+    "source": "https://siliconvalleyskydiving.com/licensed/",
+    "tags": {
+      "zh": "先修条件待确认 · 专项训练",
+      "en": "Prerequisites unverified · specialty training"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "m-aff",
+    "zone": "mon",
+    "min": 0,
+    "max": 0,
+    "kind": "license",
+    "title": {
+      "zh": "AFF · 7 级学生课程",
+      "en": "AFF · 7-level student program"
+    },
+    "price": 1965,
+    "unit": {
+      "zh": "/ 7 跳课程",
+      "en": "/ 7-jump program"
+    },
+    "note": {
+      "zh": "含地面课程、7 跳及装备；整套预付价 USD 1,810，重跳另计；需先完成双人体验。",
+      "en": "Ground school, 7 jumps and gear; USD 1,810 prepaid, repeats extra; prior tandem required."
+    },
+    "source": "https://skydivemontereybay.com/skydive-license/",
+    "tags": {
+      "zh": "入门 · 不是完整 A 证",
+      "en": "Beginner · not a complete A license"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "bas-aff",
+    "zone": "bas",
+    "min": 0,
+    "max": 0,
+    "kind": "license",
+    "title": {
+      "zh": "AFF 首跳课 · 含地面课",
+      "en": "AFF first-jump course · Ground school included"
+    },
+    "price": 390,
+    "unit": {
+      "zh": "/ 首跳课",
+      "en": "/ first-jump course"
+    },
+    "note": {
+      "zh": "学生装备与教练指导包含；这不是完整 AFF 或 A 证套餐价。完整套餐、重跳费用与安排另询。",
+      "en": "Student gear and instruction included; this is not the full AFF or A-license package. Ask about package, repeats and scheduling."
+    },
+    "source": "https://www.bayareaskydiving.com/aff-pricing",
+    "tags": {
+      "zh": "未开始学习 · AFF",
+      "en": "New student · AFF"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "bas-a",
+    "zone": "bas",
+    "min": 1,
+    "max": 1,
+    "kind": "license",
+    "title": {
+      "zh": "AFF 之后 · A-license 学生路径",
+      "en": "After AFF · A-license student pathway"
+    },
+    "price": null,
+    "unit": {
+      "zh": "学生套餐询价",
+      "en": "Ask for student package pricing"
+    },
+    "note": {
+      "zh": "官网列有 15 solo、3 coach、check dive 及装备租赁；solo 打包费另计。外来 AFF 学生资格需确认。",
+      "en": "Listed package includes 15 solo jumps, 3 coached jumps, check dive and rental gear; solo pack jobs extra. Visiting AFF student eligibility unverified."
+    },
+    "source": "https://www.bayareaskydiving.com/aff-pricing",
+    "tags": {
+      "zh": "AFF 毕业 · 尚未拿 A 证",
+      "en": "AFF graduate · pre-A"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "bas-coach",
+    "zone": "bas",
+    "min": 2,
+    "max": 5,
+    "kind": "skills",
+    "title": {
+      "zh": "Formation / Freefly · 户外 coaching",
+      "en": "Formation / Freefly · Outdoor coaching"
+    },
+    "price": null,
+    "unit": {
+      "zh": "教练与先修条件询价",
+      "en": "Ask about coaching & prerequisites"
+    },
+    "note": {
+      "zh": "官网列有编队及 freefly 训练；具体课程、先修要求、教练费与租赁装备需确认。",
+      "en": "Formation and freefly training are listed; confirm course, prerequisites, coach fee and rental availability."
+    },
+    "source": "https://www.bayareaskydiving.com/experienced",
+    "tags": {
+      "zh": "持证者 · 专项资格待确认",
+      "en": "Licensed jumpers · prerequisites unverified"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "bas-wingsuit",
+    "zone": "bas",
+    "min": 2,
+    "max": 5,
+    "kind": "wingsuit",
+    "title": {
+      "zh": "Wingsuit first flight · 翼装首飞训练",
+      "en": "Wingsuit first-flight training"
+    },
+    "price": null,
+    "unit": {
+      "zh": "课程与安排询价",
+      "en": "Ask about course and availability"
+    },
+    "note": {
+      "zh": "官网列有此训练方向。USPA 基本门槛为有效执照＋至少 200 跳；首飞教练、近期记录、装备、费用与可预约安排需单独确认。",
+      "en": "This training direction is listed by the DZ. USPA minimum: current license and 200 jumps. Confirm coach, currency, gear, pricing and availability separately."
+    },
+    "source": "https://www.bayareaskydiving.com/experienced",
+    "tags": {
+      "zh": "官网列有 · 专项资格待审核",
+      "en": "Listed by operator · specialist review required"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "bas-camera",
+    "zone": "bas",
+    "min": 2,
+    "max": 5,
+    "kind": "camera",
+    "title": {
+      "zh": "Camera flying · 相机飞行训练",
+      "en": "Camera flying instruction"
+    },
+    "price": null,
+    "unit": {
+      "zh": "教练与课程询价",
+      "en": "Ask about coaching"
+    },
+    "note": {
+      "zh": "官网列有相机飞行教学。USPA 建议持证＋200 跳；基地准入、装备审核、教练安排与费用仍需确认。",
+      "en": "Camera flying instruction is listed. USPA recommends a license and 200 jumps; confirm DZ approval, equipment review, coach and pricing."
+    },
+    "source": "https://www.bayareaskydiving.com/experienced",
+    "tags": {
+      "zh": "官网列有 · 非报名确认",
+      "en": "Listed by operator · not confirmed enrollment"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  },
+  {
+    "id": "svs-camera",
+    "zone": "svs",
+    "min": 2,
+    "max": 5,
+    "kind": "camera",
+    "title": {
+      "zh": "Camera Flyer · 相机飞行训练方向",
+      "en": "Camera Flyer training direction"
+    },
+    "price": null,
+    "unit": {
+      "zh": "课程与资格询价",
+      "en": "Ask about course and eligibility"
+    },
+    "note": {
+      "zh": "官网列有 Camera Flyer 训练方向；并非当前开班或报名确认。具体跳数、近期记录、装备准入与费用需询问。",
+      "en": "The website lists Camera Flyer training; this does not confirm a current class or enrollment. Ask about jump count, currency, equipment and fees."
+    },
+    "source": "https://siliconvalleyskydiving.com/licensed/",
+    "tags": {
+      "zh": "官网训练方向 · 当前安排待确认",
+      "en": "Official training direction · current schedule unverified"
+    },
+    "currency": "USD",
+    "reviewedAt": "2026-11-21"
+  }
+]
