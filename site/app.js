@@ -1,4 +1,4 @@
-import {searchCandidates} from './geocoding.js';
+import {searchCandidates,needsOriginConfirmation} from './geocoding.js';
 import {gearPricesHTML} from './pricing.js';
 import {mountVenueMap,disposeVenueMap} from './map.js';
 import {routeSummary,ensureRoutes,getRoute} from './routing.js';
@@ -27,7 +27,7 @@ const icons = {
 };
 const ico=(name,size=19)=>`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]||icons.canopy}</svg>`;
 const bi=(zh,en)=>({zh,en});
-let state={tunnelMode:'experience',ibaTrack:'static',ibaLevels:{static:1,dynamic:1,formation:1},heightSelections:{tandem:{},sport:{}},lang:'en',languageChosen:false,role:null,level:-1,view:'dz',goal:'all',sort:'default',origin:null,originText:'',originCandidates:[],searching:false,message:'',heights:{},region:'all'};
+let state={tunnelMode:'experience',ibaTrack:'static',ibaLevels:{static:1,dynamic:1,formation:1},heightSelections:{tandem:{},sport:{}},lang:'en',languageChosen:false,role:null,level:-1,view:'dz',goal:'all',sort:'default',origin:null,originConfirmed:false,originText:'',originCandidates:[],searching:false,message:'',heights:{},region:'all'};
 try{const stored=JSON.parse(sessionStorage.getItem('outdoor-dashboard-state'));if(stored)state={...state,...stored};if(!state.languageChosen)state.lang='en'}catch{}
 if(!Array.isArray(state.originCandidates))state.originCandidates=[];if(state.searching){state.searching=false;state.message=bi('上次搜索已中断，请重新搜索。','The previous search was interrupted; please search again.')}
 if(!state.unifiedLevels){if(state.role==='tandem')state.level=-1;state.unifiedLevels=true}
@@ -38,6 +38,7 @@ const money=(value,currency='USD')=>new Intl.NumberFormat(state.lang==='zh'?'zh-
 const src=(url,label)=>`<a class="source" href="${esc(url)}" target="_blank" rel="noopener noreferrer">${label||t('官网','Source')}</a>`;
 const {zones,courses,regions,indoorVenues,repository,geocodingEndpoint}=await loadCatalog();
 if(!['all',...regions.map(r=>r.id)].includes(state.region))state.region='all';
+if(needsOriginConfirmation(state.origin,{confirmed:state.originConfirmed,label:state.originText,shortcuts:regions.flatMap(r=>r.origins)})){state.origin=null;state.originConfirmed=false;state.message=bi('请重新搜索并确认出发地，再计算驾车路线。','Please search and confirm the starting place before calculating driving routes.')}else if(state.origin)state.originConfirmed=true;
 const S={mon:'https://skydivemontereybay.com/licensed-skydiver/'};
 function policyExcerpt(z){return `<details class="policy-excerpt"><summary>${t('官网原文与信息摘要','Official wording & information summary')}</summary><p class="source-kind">${t('官网原文 · 英文摘录','Official wording · English excerpt')}</p>${z.policyQuotes.length?z.policyQuotes.map(q=>`<blockquote lang="en">“${esc(q)}”</blockquote>`).join(''):`<p>${t('尚未收录逐字原文','No verbatim excerpt documented')}</p>`}<p>${src(z.eligSource,t('查看官网上下文','Read the original context'))}</p><p class="source-kind">${t('信息摘要 · 本站整理，非逐字引用','Information summary · our paraphrase, not a quotation')}</p><p>${txt(z.eligibility)}</p></details>`}
 const stageNames=()=>[t('Student · 未开始 AFF','Student · pre-AFF'),t('AFF 毕业 / 未拿 A','AFF / pre-A'),t('A license','A license'),t('B license','B license'),t('C license','C license'),t('D license','D license')];
@@ -178,7 +179,7 @@ function bind(){
  document.querySelectorAll('[data-iba-level]').forEach(b=>b.onclick=()=>{setIndoorLevel(Number(b.dataset.ibaLevel));render()});
 
  document.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>lookup(b.dataset.city,{shortcut:true}));
- document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='language'){state.lang=state.lang==='zh'?'en':'zh';state.languageChosen=true;}if(a==='switch')state.role=null;if(a==='clear-origin'){++querySequence;state.origin=null;state.originText='';state.originCandidates=[];state.searching=false;state.message=''}render()});
+ document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='language'){state.lang=state.lang==='zh'?'en':'zh';state.languageChosen=true;}if(a==='switch')state.role=null;if(a==='clear-origin'){++querySequence;state.origin=null;state.originConfirmed=false;state.originText='';state.originCandidates=[];state.searching=false;state.message=''}render()});
 
  document.querySelectorAll('[data-origin-candidate]').forEach(button=>button.onclick=()=>{const candidate=state.originCandidates[Number(button.dataset.originCandidate)];if(candidate)selectOrigin(candidate)});
  const form=$('#origin-form');if(form)form.onsubmit=e=>{e.preventDefault();lookup($('#origin').value)};
@@ -187,7 +188,7 @@ let querySequence=0;
 async function lookup(value,{shortcut=false}={}){
  const raw=value.trim();if(!raw||(state.searching&&!shortcut))return;const seq=++querySequence;
  if(shortcut){const origin=regions.flatMap(r=>r.origins).find(o=>o.name===raw);if(origin){selectOrigin({coord:origin.coord,label:origin.name});return}}
- state.originText=raw;state.origin=null;state.originCandidates=[];state.searching=true;state.message=bi('正在搜索候选地点…','Searching for matching places…');render();
+ state.originText=raw;state.origin=null;state.originConfirmed=false;state.originCandidates=[];state.searching=true;state.message=bi('正在搜索候选地点…','Searching for matching places…');render();
  try{
   const venues=[...zones,...indoorVenues].filter(z=>state.region==='all'||z.region===state.region);
   const focus=venues.length?[venues.reduce((sum,z)=>sum+z.coord[0],0)/venues.length,venues.reduce((sum,z)=>sum+z.coord[1],0)/venues.length]:null;
@@ -196,7 +197,7 @@ async function lookup(value,{shortcut=false}={}){
  }catch{if(seq!==querySequence)return;state.message=bi('地址搜索暂不可用，请重试或使用城市快捷项。','Place search is unavailable. Retry or choose a city shortcut.')}
  if(seq!==querySequence)return;state.searching=false;render();
 }
-function selectOrigin(candidate){++querySequence;state.searching=false;state.origin=candidate.coord;state.originText=candidate.label;state.originCandidates=[];state.message=bi('已选定：'+candidate.label+'。驾车估算不含实时交通。','Selected: '+candidate.label+'. Driving estimates exclude live traffic.');render()}
+function selectOrigin(candidate){++querySequence;state.searching=false;state.origin=candidate.coord;state.originConfirmed=true;state.originText=candidate.label;state.originCandidates=[];state.message=bi('已选定：'+candidate.label+'。驾车估算不含实时交通。','Selected: '+candidate.label+'. Driving estimates exclude live traffic.');render()}
 function originCandidates(){if(!state.originCandidates.length)return '';return `<section class="origin-candidates" aria-label="${t('候选地点','Candidate locations')}"><h4>${t('请选择地点','Choose a location')}</h4><p>${t('请核对城市、州／省和国家。结果会偏向当前收录区域，但不会自动选定。','Check the city, state/province and country. Results favor the current region; none is selected automatically.')}</p>${state.originCandidates.map((candidate,i)=>`<button type="button" data-origin-candidate="${i}"><strong>${esc(candidate.title)}</strong><span>${esc(candidate.label)}</span><small>${candidate.coord.map(n=>n.toFixed(4)).join(', ')}</small></button>`).join('')}<small class="candidate-source"><a href="https://photon.komoot.io/" target="_blank" rel="noopener noreferrer">Photon</a> / <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener noreferrer">© OpenStreetMap contributors</a></small></section>`}
 
 window.addEventListener('resize',applyOverviewZoom);

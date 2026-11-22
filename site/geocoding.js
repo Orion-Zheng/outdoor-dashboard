@@ -26,3 +26,8 @@ export async function searchCandidates(query,options={}){
  };
  const result=queue.then(work,work);queue=result.catch(()=>{});return result;
 }
+
+export function needsOriginConfirmation(origin,{confirmed,label,shortcuts=[]}={}){
+ if(!origin)return false;if(!validCoord(origin))return true;if(confirmed===true)return false;
+ return !shortcuts.some(place=>place.name===label&&validCoord(place.coord)&&place.coord.every((v,i)=>Math.abs(v-origin[i])<1e-6));
+}
