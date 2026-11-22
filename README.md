@@ -53,7 +53,7 @@ Open `http://127.0.0.1:4180/`. Rebuild after source/data edits. To verify GitHub
 BASE_PATH=/outdoor-dashboard/ npm run preview
 ```
 
-Open `http://127.0.0.1:4180/outdoor-dashboard/`. All assets, data and module imports are relative to the deployed project path.
+Open `http://127.0.0.1:4180/outdoor-dashboard/`. Assets, data and module imports are relative to the deployed project path. The build adds a content-derived version to scripts, styles and catalog requests so a new deployment does not keep loading a cached older interface.
 
 ## Hosting and reviews
 

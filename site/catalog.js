@@ -1,5 +1,6 @@
 async function read(relative){
- const response=await fetch(new URL(relative,import.meta.url));
+ const url=new URL(relative,import.meta.url);url.searchParams.set('v','__BUILD_VERSION__');
+ const response=await fetch(url);
  if(!response.ok)throw new Error(`Catalog unavailable: ${relative}`);
  return response.json();
 }
