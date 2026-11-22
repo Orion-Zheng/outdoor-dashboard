@@ -1,6 +1,6 @@
 import {assessForecast,referenceFor,windReferenceLabel} from './weather-rules.js';
 import {windowIsToday} from './operating-window.js';
-import {blocksHTML,groupTooltipHTML} from './forecast-blocks.js';
+import {blocksHTML,groupTooltipHTML,hourReviewHTML} from './forecast-blocks.js';
 import {zhText} from './i18n.js';
 const tr=(lang,zh,en)=>lang==='zh'?zhText(zh):en;
 const esc=value=>String(value??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
@@ -44,27 +44,39 @@ export function forecastHTML(item,context,lang){
  return `<section class="forecast-panel ${a.tone}" aria-label="${t('白天规划时段天气预报','Daytime planning weather forecast')}"><div class="forecast-top"><h3>${heading}</h3>${w?`<span>${time(w.start,lang,true)} – ${time(w.end,lang)} PT</span>`:''}</div>${hours}${referenceBanner(reference,lang)}<p class="forecast-headline">${title}</p>${alert}${arrival}${a.points.length?`<p class="forecast-probability">${t('本规划时段最高降水概率','Peak precipitation chance in this planning window')}: <strong>${n(a.maxProbability)}%</strong>${a.partial?' · '+t('部分数据缺失','Some data unavailable'):''}</p>${blocksHTML(a.points,{lang,timeZone:w.timeZone,arrival:a.arrivalIndex>=0?a.arrival:null,selected,group:'main'})}<div class="forecast-selected" data-forecast-selected="main" aria-live="polite">${forecastPointHTML(a.points[selected],context,lang)}</div>`:`<p>${t('未能核实预报内的白天规划窗口，请核对基地与外部天气。','A daytime planning window could not be verified in the forecast; check the DZ and external weather.')}</p>`}${otherHours(a,context,lang,reference)}<details class="forecast-method"><summary>${t('时段选择、参考标准与数据来源','Planning window, reference standards & sources')}</summary><p>${t('默认选择仍有日照且落在已收录官网时段内的下一段时间；今天已结束或官网列为休息日，则查找下一天，最多查看七天预报。营业时间不等于当前开放或跳伞安排，特殊活动和夜跳不在默认规划内。未核实营业时间时只按日照筛选，并明确标注。','The default is the next remaining daylight interval inside the documented weekly hours, searching up to seven forecast days after sunset or a published closed day. Published hours do not confirm live operations or jump availability; special events and night jumps are outside this default. Missing schedules use a clearly labeled daylight-only filter.')}</p><p>${t('风速与阵风取较大值，按所选学生／双人跳／A／B／C／D 身份分别比较。学生为 USPA 常规上限；持证者及双人跳为已注明的外部基地参考。降水、雷暴、雾和低能见度分别提示，不因风小而忽略；未标红不等于可跳。','The higher of wind and gusts is compared with the selected student, tandem, A, B, C or D reference. Students use the normal USPA limit; licensed and tandem references are cited external-DZ examples. Precipitation, storms, fog and visibility are assessed independently. No red flag is not jump clearance.')}</p><p>${t('每小时方块按日照与官网时段裁剪，并保留原模型有效时间。绿表示全部人群通过当前参考筛查，橘黄表示部分受限或云况、能见度、缺失数据需核查，红表示所有人群未通过。红色是保守规划提示，不是统一法律禁令或基地关闭确认。降水量、概率与阵风对应截至该模型时刻的一小时累计量、概率和最大值；不能保证到时天气、云底或运营状况。驾车到达估算不含实时交通。','Hourly blocks are clipped to daylight and published hours; details retain their original model valid time. Green means all groups pass this reference screen; orange means only some do, or clouds, visibility or missing data need review; red means none pass. Red is a conservative planning screen, not a universal legal prohibition or confirmation that the DZ is closed. Precipitation, probability and gusts describe the hour ending at that model time. They do not establish future weather, cloud-base clearance or operations. Arrival excludes live traffic.')} <a href="https://open-meteo.com/en/docs" target="_blank" rel="noopener noreferrer">Open-Meteo</a></p></details></section>`;
 }
 export function bindForecast(host,item,context,lang){
- const a=assessForecast(item.data,context,context.forecastNowSeconds??Date.now()/1000,item.fetched/1000);
+ const a=assessForecast(item.data,context,context.forecastNowSeconds??Date.now()/1000,item.fetched/1000),cards=[];
  host.querySelectorAll('[data-forecast-blocks]').forEach(wrapper=>{
   const group=wrapper.dataset.forecastBlocks,points=group==='main'?a.points:a.otherPoints,buttons=[...wrapper.querySelectorAll('[data-forecast-hour]')],tip=wrapper.querySelector('.hour-tooltip');
-  function hide(){tip.hidden=true}
+  let closeTimer,activeButton,pinned=false;
+  const cancelClose=()=>{clearTimeout(closeTimer);closeTimer=null};
+  function hide(){cancelClose();tip.hidden=true;pinned=false;buttons.forEach(b=>b.setAttribute('aria-expanded','false'))}
+  function deferClose(){cancelClose();closeTimer=setTimeout(()=>{if(!pinned&&!tip.contains(document.activeElement)&&!buttons.includes(document.activeElement))hide()},450)}
   function reveal(button){
-   tip.innerHTML=groupTooltipHTML(points[Number(button.dataset.forecastHour)],lang,a.window?.timeZone||'America/Los_Angeles');tip.hidden=false;
+   cancelClose();cards.forEach(card=>{if(card.tip!==tip)card.hide()});if(activeButton===button&&!tip.hidden)return;activeButton=button;pinned=false;
+   tip.innerHTML=groupTooltipHTML(points[Number(button.dataset.forecastHour)],lang,a.window?.timeZone||'America/Los_Angeles',group);tip.hidden=false;buttons.forEach(b=>b.setAttribute('aria-expanded',String(b===button)));
    const r=button.getBoundingClientRect(),dialog=host.closest('dialog').getBoundingClientRect(),width=Math.min(348,dialog.width-28),left=Math.max(dialog.left+14,Math.min(dialog.right-width-14,r.left+r.width/2-width/2));
    tip.style.width=width+'px';tip.style.left=left+'px';
    const above=r.top-dialog.top-18,below=dialog.bottom-r.bottom-18;tip.style.maxHeight=Math.max(140,above,below)+'px';
    const height=tip.getBoundingClientRect().height;
-   tip.style.top=(below>=height?r.bottom+8:above>=height?r.top-height-8:below>=above?r.bottom+8:r.top-height-8)+'px';
+   tip.style.top=(below>=height?r.bottom:above>=height?r.top-height:below>=above?r.bottom:r.top-height)+'px';
   }
   buttons.forEach((button,index)=>{
    button.addEventListener('pointerenter',()=>reveal(button));
-   button.addEventListener('pointerleave',event=>{if(!tip.contains(event.relatedTarget))hide()});
+   button.addEventListener('pointerleave',event=>{if(!tip.contains(event.relatedTarget))deferClose()});
    button.addEventListener('focus',()=>reveal(button));
-   button.addEventListener('blur',hide);
-   button.addEventListener('click',()=>{buttons.forEach(b=>{b.classList.toggle('selected',b===button);b.setAttribute('aria-pressed',String(b===button))});host.querySelector(`[data-forecast-selected="${group}"]`).innerHTML=forecastPointHTML(points[index],context,lang);reveal(button)});
-   button.addEventListener('keydown',event=>{if(event.key==='Escape'){hide();return}let next=index;if(event.key==='ArrowRight')next++;else if(event.key==='ArrowLeft')next--;else if(event.key==='Home')next=0;else if(event.key==='End')next=buttons.length-1;else return;event.preventDefault();buttons[Math.max(0,Math.min(buttons.length-1,next))].focus()});
+   button.addEventListener('blur',deferClose);
+   button.addEventListener('click',()=>{buttons.forEach(b=>{b.classList.toggle('selected',b===button);b.setAttribute('aria-pressed',String(b===button))});host.querySelector(`[data-forecast-selected="${group}"]`).innerHTML=forecastPointHTML(points[index],context,lang);reveal(button);pinned=true});
+   button.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();hide();return}let next=index;if(event.key==='ArrowRight')next++;else if(event.key==='ArrowLeft')next--;else if(event.key==='Home')next=0;else if(event.key==='End')next=buttons.length-1;else return;event.preventDefault();buttons[Math.max(0,Math.min(buttons.length-1,next))].focus()});
   });
-  tip.addEventListener('pointerleave',hide);
+  tip.addEventListener('pointerenter',cancelClose);
+  tip.addEventListener('pointerleave',deferClose);
+  tip.addEventListener('focusin',cancelClose);
+  tip.addEventListener('focusout',deferClose);
+  tip.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();event.stopPropagation();hide();activeButton?.focus();hide()}});
+  tip.addEventListener('click',event=>{const button=event.target.closest('[data-hour-review]');if(!button)return;pinned=true;cancelClose();const open=button.getAttribute('aria-expanded')!=='true';tip.querySelectorAll('[data-hour-review]').forEach(b=>b.setAttribute('aria-expanded',String(b===button&&open)));const detail=tip.querySelector('[data-hour-review-detail]');detail.hidden=!open;if(open){detail.innerHTML=hourReviewHTML(points[Number(activeButton.dataset.forecastHour)],button.dataset.hourReview,lang);detail.scrollIntoView({block:'nearest'})}});
+  cards.push({tip,buttons,hide});
  });
- host.closest('dialog').onscroll=()=>host.querySelectorAll('.hour-tooltip').forEach(tip=>{tip.hidden=true});
+ const dialog=host.closest('dialog');
+ dialog.onscroll=()=>cards.forEach(card=>card.hide());
+ dialog.onpointerdown=event=>cards.forEach(card=>{if(!card.tip.contains(event.target)&&!card.buttons.some(button=>button.contains(event.target)))card.hide()});
 }
