@@ -11,3 +11,4 @@ test('unsafe source URLs block publication',t=>assert.throws(()=>validateCatalog
 test('missing bilingual information blocks publication',t=>assert.throws(()=>validateCatalog(fixture(t,data=>{delete data[0].eligibility.en})),/zh and en/));
 test('unknown price remains explicit null',t=>assert.throws(()=>validateCatalog(fixture(t,data=>{delete data[0].liftPrices[0].own})),/price/));
 test('duplicate venue IDs block publication',t=>assert.throws(()=>validateCatalog(fixture(t,data=>{data[1].id=data[0].id})),/Duplicate/));
+test('invalid published hours block publication',t=>assert.throws(()=>validateCatalog(fixture(t,data=>{data[0].operatingHours.weekly.sun=[{open:'25:00',close:'26:00'}]})),/hours interval/));

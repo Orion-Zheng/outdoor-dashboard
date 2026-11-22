@@ -22,6 +22,7 @@
 - Coordinates are `[latitude, longitude]` at the venue, not a nearby city center. Do not provide private home addresses or personal contact details.
 - Do not claim a license alone grants camera/wingsuit/balloon/instructor access. Preserve jump-count, currency, equipment, endorsement and operator-review requirements.
 - Only add emails, phone numbers and official websites supported by public operator information. The contact dialog has distinct actions; generic “Contact” must never directly dial.
+- `operatingHours` records a sourced weekly schedule in its IANA `timeZone`; distinguish `business`, `dropzone`, `flights` and `jumping` hours. Weekday keys are `sun` through `sat`; `[]` means published closed, `null` means unknown, and intervals use `open`/`close` in `HH:MM`. Office hours must not be presented as verified jump times. Weather planning intersects these hours with sunrise/sunset; it never confirms current opening.
 - Never infer an observed cloud ceiling from modeled cloud percentage. A weather comparison is not jump clearance.
 - For media, provide source, creator, license and permission for redistribution. Prefer a linked video over copying a video file. Existing media must retain credits.
 

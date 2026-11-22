@@ -106,7 +106,47 @@
       }
     ],
     "altitudeReference": null,
-    "priceYear": 2026
+    "priceYear": 2026,
+    "operatingHours": {
+      "timeZone": "America/Los_Angeles",
+      "reviewedAt": "2026-11-21",
+      "kind": "dropzone",
+      "source": "https://www.bayareaskydiving.com/contact",
+      "weekly": {
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "cal",
@@ -211,7 +251,47 @@
       }
     ],
     "altitudeReference": null,
-    "priceYear": 2026
+    "priceYear": 2026,
+    "operatingHours": {
+      "timeZone": "America/Los_Angeles",
+      "reviewedAt": "2026-11-21",
+      "kind": "business",
+      "source": "https://skydivecalifornia.com/contact/",
+      "weekly": {
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "19:00"
+          }
+        ],
+        "mon": [],
+        "tue": [],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "19:00"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "svs",
@@ -311,7 +391,42 @@
       }
     ],
     "altitudeReference": null,
-    "priceYear": 2023
+    "priceYear": 2023,
+    "operatingHours": {
+      "timeZone": "America/Los_Angeles",
+      "reviewedAt": "2026-11-21",
+      "kind": "flights",
+      "source": "https://siliconvalleyskydiving.com/contact-us/",
+      "weekly": {
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "tue": [],
+        "wed": [],
+        "thu": [],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "18:00"
+          }
+        ]
+      }
+    }
   },
   {
     "id": "mon",
@@ -388,6 +503,56 @@
       }
     ],
     "altitudeReference": "MSL",
-    "priceYear": 2026
+    "priceYear": 2026,
+    "operatingHours": {
+      "timeZone": "America/Los_Angeles",
+      "reviewedAt": "2026-11-21",
+      "kind": "jumping",
+      "source": "https://skydivemontereybay.com/faq/",
+      "weekly": {
+        "sun": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "mon": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "10:00",
+            "close": "17:00"
+          }
+        ]
+      }
+    }
   }
 ]
