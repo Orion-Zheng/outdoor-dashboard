@@ -88,3 +88,5 @@ Published prices, access policies, estimates and quotations are labeled separate
 ## Media and licenses
 
 Original project code is MIT licensed. Third-party photographs, drawings, quoted excerpts and linked/embedded videos retain their respective rights; the project license does not relicense them. See [THIRD_PARTY.md](THIRD_PARTY.md).
+
+Outdoor stage menus show current-stage directions only. Because actual jump count is not collected, wingsuit/camera and instructional-rating directions appear from the C / 200-jump stage, not under A or B. This is a display policy, not an added USPA C-license requirement. The same policy gates course results and clears a previously selected unsupported branch when changing stage. Full progression guides remain available in the overview.
