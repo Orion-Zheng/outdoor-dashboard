@@ -2,6 +2,8 @@
 
 Community-reviewed information about outdoor venues, training, prices and conditions. [Website](https://orion-zheng.github.io/outdoor-dashboard/) · [Contribute information](CONTRIBUTING.md) · [Report a correction](https://github.com/Orion-Zheng/outdoor-dashboard/issues/new/choose).
 
+English is the default interface language; a language button switches to Chinese and remembers an explicit choice for the browser session.
+
 目前收录跳伞（户外基地、室内风洞、USPA / IBA 进阶路径）。首批资料覆盖旧金山湾区及周边；项目按运动类别和地区组织，不以湾区作为全站边界。潜水、滑雪在分类目录中预留，但尚未上线。
 
 ## Contribute / 贡献资料

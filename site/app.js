@@ -25,8 +25,8 @@ const icons = {
 };
 const ico=(name,size=19)=>`<svg width="${size}" height="${size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${icons[name]||icons.canopy}</svg>`;
 const bi=(zh,en)=>({zh,en});
-let state={tunnelMode:'experience',ibaTrack:'static',ibaLevels:{static:1,dynamic:1,formation:1},heightSelections:{tandem:{},sport:{}},lang:'zh',role:null,level:-1,view:'dz',goal:'all',sort:'default',origin:null,originText:'',message:'',heights:{},region:'all'};
-try{const stored=JSON.parse(sessionStorage.getItem('outdoor-dashboard-state'));if(stored)state={...state,...stored}}catch{}
+let state={tunnelMode:'experience',ibaTrack:'static',ibaLevels:{static:1,dynamic:1,formation:1},heightSelections:{tandem:{},sport:{}},lang:'en',languageChosen:false,role:null,level:-1,view:'dz',goal:'all',sort:'default',origin:null,originText:'',message:'',heights:{},region:'all'};
+try{const stored=JSON.parse(sessionStorage.getItem('outdoor-dashboard-state'));if(stored)state={...state,...stored};if(!state.languageChosen)state.lang='en'}catch{}
 if(!state.unifiedLevels){if(state.role==='tandem')state.level=-1;state.unifiedLevels=true}
 const t=(zh,en)=>state.lang==='zh'?zhText(zh):en;
 const txt=x=>{const value=x&&typeof x==='object'?x[state.lang]:x;return esc(state.lang==='zh'?zhText(value??''):value??'')};
@@ -174,7 +174,7 @@ function bind(){
  document.querySelectorAll('[data-iba-level]').forEach(b=>b.onclick=()=>{setIndoorLevel(Number(b.dataset.ibaLevel));render()});
 
  document.querySelectorAll('[data-city]').forEach(b=>b.onclick=()=>lookup(b.dataset.city));
- document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='language')state.lang=state.lang==='zh'?'en':'zh';if(a==='switch')state.role=null;if(a==='clear-origin'){state.origin=null;state.originText='';state.message=''}render()});
+ document.querySelectorAll('[data-action]').forEach(b=>b.onclick=()=>{const a=b.dataset.action;if(a==='language'){state.lang=state.lang==='zh'?'en':'zh';state.languageChosen=true;}if(a==='switch')state.role=null;if(a==='clear-origin'){state.origin=null;state.originText='';state.message=''}render()});
 
  const form=$('#origin-form');if(form)form.onsubmit=e=>{e.preventDefault();lookup($('#origin').value)};
 }
