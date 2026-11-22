@@ -34,12 +34,13 @@ export function validateCatalog(root=defaultRoot){
    const localOutdoorIds=new Set(venues.map(v=>v.id));
    for(const z of [...venues,...indoor]){common(z,z.id,id);check(!venueIds.has(z.id),'Duplicate venue id: '+z.id);venueIds.add(z.id);venueCount++}
    for(const z of venues){
+    if(z.documentedAudiences)check(Array.isArray(z.documentedAudiences)&&z.documentedAudiences.length>0&&z.documentedAudiences.every(v=>['tandem','sport'].includes(v)),`${z.id}: invalid documented audiences`);
     if(z.operatingHours){const h=z.operatingHours;check(['dropzone','business','flights','jumping'].includes(h.kind),`${z.id}: invalid hours kind`);url(h.source,z.id+'.hours');date(h.reviewedAt,z.id+'.hours');try{new Intl.DateTimeFormat('en',{timeZone:h.timeZone})}catch{throw new Error(z.id+': invalid hours timezone')}for(const day of ['sun','mon','tue','wed','thu','fri','sat']){const entries=h.weekly?.[day];check(entries===null||Array.isArray(entries),`${z.id}: missing weekday ${day}`);for(const w of entries||[]){check(/^([01]\d|2[0-3]):[0-5]\d$/.test(w.open)&&/^([01]\d|2[0-3]):[0-5]\d$/.test(w.close)&&w.open<w.close,`${z.id}: invalid hours interval`)}}}
     check(/^[A-Z]{3}$/.test(z.currency),`${z.id}: ISO currency required`);check(z.minimum===null||(Number.isInteger(z.minimum)&&z.minimum>=2&&z.minimum<=5),`${z.id}: invalid license minimum`);
     check(typeof z.affGraduateAccepted==='boolean',`${z.id}: AFF graduate eligibility required`);bi(z.eligibility,z.id);bi(z.tandemNote,z.id);bi(z.note,z.id);bi(z.rentalNote,z.id);bi(z.learn,z.id);bi(z.learnNote,z.id);price(z.learnPrice,z.id);check(Array.isArray(z.policyQuotes)&&z.policyQuotes.every(q=>typeof q==='string'),`${z.id}: policy quotes required (empty array if none)`);
     for(const key of ['eligSource','addrSource','tandemSource','learnSource'])url(z[key],`${z.id}.${key}`);
     check(Array.isArray(z.tandemPrices)&&Array.isArray(z.liftPrices),`${z.id}: price arrays required`);
-    const altitudes=new Set();for(const r of z.tandemPrices){check(Number.isFinite(r.altitude)&&r.altitude>0&&!altitudes.has(r.altitude),`${z.id}: invalid/duplicate tandem altitude`);altitudes.add(r.altitude);price(r.price,z.id);price(r.alternatePrice,z.id);bi(r.condition,z.id)}
+    const altitudes=new Set();for(const r of z.tandemPrices){check((r.altitude===null||(Number.isFinite(r.altitude)&&r.altitude>0))&&!altitudes.has(r.altitude),`${z.id}: invalid/duplicate tandem altitude`);altitudes.add(r.altitude);price(r.price,z.id);price(r.alternatePrice,z.id);bi(r.condition,z.id)}
     for(const r of z.liftPrices){check(r.altitude===null||(Number.isFinite(r.altitude)&&r.altitude>0),`${z.id}: invalid lift altitude`);price(r.own,z.id);price(r.rental,z.id,true)}
    }
    for(const z of indoor)url(z.sportSource,z.id);

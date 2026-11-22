@@ -18,7 +18,8 @@
 - Text is plain text, not HTML. Bilingual fields use `{ "zh": "中文", "en": "English" }`.
 - Use official HTTPS sources. Keep source links specific to the fact being supported. Clearly distinguish a short direct quotation from your paraphrase or a type-based estimate.
 - Prices are numbers with an ISO currency code and clear per-person/per-jump/package units. Unknown is `null`; `false` means rental explicitly unavailable, not unknown. Do not use zero or a dash string for an unpublished price.
-- `tandemPrices` lists every documented altitude and its conditions. `liftPrices` separates own-gear and rental-included prices. Do not silently drop options.
+- `documentedAudiences` optionally scopes catalog coverage to `tandem` and/or `sport`; it does not claim other services do not exist. A tandem-only record must not appear as a verified student or licensed option.
+- `tandemPrices` lists every documented altitude and its conditions. Use `altitude: null` when a published price is not paired with a documented exit altitude; never invent the height. `liftPrices` separates own-gear and rental-included prices. Do not silently drop options.
 - Coordinates are `[latitude, longitude]` at the venue, not a nearby city center. Do not provide private home addresses or personal contact details.
 - Do not claim a license alone grants camera/wingsuit/balloon/instructor access. Preserve jump-count, currency, equipment, endorsement and operator-review requirements.
 - Only add emails, phone numbers and official websites supported by public operator information. The contact dialog has distinct actions; generic “Contact” must never directly dial.

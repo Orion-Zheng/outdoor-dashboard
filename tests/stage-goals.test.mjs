@@ -1,9 +1,11 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
-import {stageGoalKeys,normalizeStageGoal,courseFitsStage} from '../site/stage-goals.js';
+import {stageGoalKeys,normalizeStageGoal,courseFitsStage,ratingKeysForStage} from '../site/stage-goals.js';
 const courses=JSON.parse(fs.readFileSync(new URL('../data/skydiving/regions/us-ca-bay-area/courses.json',import.meta.url)));
-test('A and B stage minima do not expose 200-jump specialties or instructional ratings',()=>{for(const level of [2,3])for(const kind of ['wingsuit','camera','teaching'])assert.ok(!stageGoalKeys(level).includes(kind));assert.ok(stageGoalKeys(3).includes('balloon'));for(const level of [4,5])for(const kind of ['wingsuit','camera','teaching'])assert.ok(stageGoalKeys(level).includes(kind))});
+test('A and B stage minima do not expose 200-jump specialties or instructional ratings',()=>{for(const level of [2,3])for(const kind of ['wingsuit','camera','teaching'])assert.ok(!stageGoalKeys(level).includes(kind));assert.ok(stageGoalKeys(3).includes('balloon'));for(const level of [4,5])for(const kind of ['wingsuit','camera'])assert.ok(stageGoalKeys(level).includes(kind))});
 test('actual catalog specialty courses stay out of A/B results without rewriting sourced prerequisites',()=>{for(const level of [2,3])assert.ok(!courses.filter(c=>courseFitsStage(c,level)).some(c=>['wingsuit','camera'].includes(c.kind)));for(const level of [4,5])assert.ok(courses.filter(c=>courseFitsStage(c,level)).some(c=>c.kind==='wingsuit'));assert.ok(courses.find(c=>c.kind==='wingsuit').note.en.includes('current license and 200 jumps'))});
 test('changing back from C/D clears stale specialty selections; valid selections persist',()=>{for(const level of [0,1,2,3])for(const goal of ['wingsuit','camera','teaching'])assert.equal(normalizeStageGoal(level,goal),'all');assert.equal(normalizeStageGoal(2,'fun'),'fun');assert.equal(normalizeStageGoal(4,'wingsuit'),'wingsuit')});
 test('first-time and student menus exclude licensed activity and preserve appropriate training',()=>{assert.deepEqual(stageGoalKeys(-1),[]);assert.deepEqual(stageGoalKeys(0),['all','license']);assert.deepEqual(stageGoalKeys(1),['all','license','skills']);for(const level of [NaN,6,null])assert.deepEqual(stageGoalKeys(level),[])});
+
+test('rating guides branch at B+100, C and D without declaring a license confers a rating',()=>{assert.deepEqual(ratingKeysForStage(2),[]);assert.deepEqual(ratingKeysForStage(3),['coach']);assert.deepEqual(ratingKeysForStage(4),['coach','aff']);assert.deepEqual(ratingKeysForStage(5),['coach','aff','tandem'])});

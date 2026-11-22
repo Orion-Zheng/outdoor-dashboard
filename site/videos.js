@@ -1,4 +1,5 @@
-// Official IBA/USPA links and provider demonstrations. Public YouTube metadata checked 2026-11-21.
+// Videos belong to activities or ratings, not to unrelated license milestones.
+// Replacement video availability and aircraft-exit footage checked 2026-11-21.
 export const videos = {
   "indoor-experience": {
     "url": "https://www.youtube.com/watch?v=GB6MHFfEX1k",
@@ -159,49 +160,19 @@ export const videos = {
       "duration": "0:38"
     }
   },
-  "outdoor-3": {
-    "url": "https://www.youtube.com/watch?v=j_7mD898F-0",
-    "title": "Skydiving out of a hot air balloon at 6:30AM! // Balloon Jump at Skydive Perris",
-    "channel": "Jayson Reese",
-    "duration": "1:04",
-    "note": {
-      "zh": "气球跳的真实体验示例，是 B 证后可探索的方向之一；实际资格、跳数和运行条件由运营方审核。",
-      "en": "A real balloon-jump example, one possible path to explore after B; eligibility, jump count and operating conditions require operator approval."
-    },
-    "secondary": {
-      "url": "https://www.youtube.com/watch?v=HujqPy6ZHeo",
-      "title": "Category H – Canopy Skills",
-      "duration": "0:33"
-    }
-  },
-  "outdoor-4": {
-    "url": "https://www.youtube.com/watch?v=_259ydTg3y0",
-    "title": "Squirrel SWIFT 4",
-    "channel": "flysquirrel.tv",
-    "duration": "0:55",
-    "note": {
-      "zh": "翼装分支示例；门槛是有效执照＋200 跳，不限定为 C 证。",
-      "en": "Illustrates a wingsuit branch; the minimum is a current license and 200 jumps, not specifically C."
-    }
-  },
-  "outdoor-5": {
-    "url": "https://www.youtube.com/watch?v=psuHCJIq6sk",
-    "title": "Tandem Instructor Course",
-    "channel": "Rob Roberts",
-    "duration": "2:11",
-    "note": {
-      "zh": "Perris 课程示例，非 USPA 官方视频；D 证不会自动授予教练 rating。",
-      "en": "A Perris course example from its uploader, not an official USPA video; D does not confer a rating."
-    }
-  },
   "wingsuit": {
-    "url": "https://www.youtube.com/watch?v=_259ydTg3y0",
-    "title": "Squirrel SWIFT 4",
-    "channel": "flysquirrel.tv",
-    "duration": "0:55",
+    "url": "https://www.youtube.com/watch?v=LOTMYbvVpb4&t=60s",
+    "embed": false,
+    "title": "Exploring the Sky - Wingsuit First Flight Course",
+    "channel": "PictureCorrect Photography Tips",
+    "duration": "3:42",
+    "segment": "1:00–2:30",
+    "startSeconds": 60,
+    "endSeconds": 150,
+    "verifiedAt": "2026-11-21",
     "note": {
-      "zh": "翼装分支示例；门槛是有效执照＋200 跳，不限定为 C 证。",
-      "en": "Illustrates a wingsuit branch; the minimum is a current license and 200 jumps, not specifically C."
+      "zh": "Lake Elsinore 的个人翼装首飞实拍：从飞机出舱后进行高空翼装飞行，不是 BASE。建议看片段 1:00–2:30，点击缩略图在 YouTube 从 1:00 打开；2010 年记录仅作项目示例，不是现行课程标准。",
+      "en": "Personal first-flight footage at Lake Elsinore: aircraft exit and wingsuit skydiving, not BASE. Suggested segment 1:00–2:30; the thumbnail opens YouTube at 1:00. This 2010 recording illustrates the activity, not current course standards."
     }
   },
   "tandem-instructor": {
@@ -218,15 +189,36 @@ export const videos = {
     "url": "https://www.youtube.com/watch?v=j_7mD898F-0",
     "title": "Skydiving out of a hot air balloon at 6:30AM! // Balloon Jump at Skydive Perris",
     "channel": "Jayson Reese",
-    "duration": "1:04",
+    "duration": "1:03",
     "note": {
       "zh": "气球跳的真实体验示例，是 B 证后可探索的方向之一；实际资格、跳数和运行条件由运营方审核。",
       "en": "A real balloon-jump example, one possible path to explore after B; eligibility, jump count and operating conditions require operator approval."
-    },
-    "secondary": {
-      "url": "https://www.youtube.com/watch?v=HujqPy6ZHeo",
-      "title": "Category H – Canopy Skills",
-      "duration": "0:33"
+    }
+  },
+  "coach": {
+    "url": "https://www.youtube.com/watch?v=AuLXzuVP3gM&t=120s",
+    "title": "Let's talk about the Coach Rating course!",
+    "channel": "Skydive Ratings",
+    "duration": "5:48",
+    "segment": "2:00–2:53",
+    "startSeconds": 120,
+    "endSeconds": 173,
+    "source": "https://skydiveratings.com/rating/coach-rating/",
+    "verifiedAt": "2026-11-21",
+    "note": {
+      "zh": "课程提供方介绍 Coach 的工作与权限；默认看片段 2:00–2:53。它介绍独立 rating，不是 B 证考试跳或 Coach 考核跳实拍。",
+      "en": "The course provider explains the Coach role and privileges; preview 2:00–2:53. This introduces a separate rating, not a B-license check dive or footage of a Coach evaluation jump."
+    }
+  },
+  "aff-instructor": {
+    "url": "https://www.youtube.com/watch?v=L4qoGsaXx0s",
+    "title": "AFF Skydiving Instructor Candidate Evaluation Jump, Category D",
+    "channel": "yogaFLIGHT",
+    "duration": "2:28",
+    "verifiedAt": "2026-11-21",
+    "note": {
+      "zh": "AFF 教练候选人考核实拍。标题 Category D 指学生训练类别，不是 D-license 考试；2013 年记录仅作考核形式示例，现行要求以 IRM 为准。",
+      "en": "An AFF Instructor candidate evaluation. Category D is a student-training category, not a D-license exam. This 2013 recording illustrates the evaluation format; use the current IRM for requirements."
     }
   }
 };

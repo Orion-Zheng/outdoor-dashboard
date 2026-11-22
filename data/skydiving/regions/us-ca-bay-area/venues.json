@@ -554,5 +554,453 @@
         ]
       }
     }
+  },
+  {
+    "id": "golden-gate",
+    "name": "Skydive Golden Gate",
+    "city": "Novato",
+    "region": "us-ca-bay-area",
+    "address": "351 Airport Road, Novato, CA 94945",
+    "coord": [
+      38.1408269,
+      -122.5580393
+    ],
+    "phone": "4157704011",
+    "source": "https://www.skydivegoldengate.com/pricing",
+    "eligSource": "https://www.skydivegoldengate.com/pricing",
+    "addrSource": "https://www.skydivegoldengate.com/contact-us",
+    "minimum": null,
+    "plane": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "planeName": null,
+    "planeSource": "https://www.skydivegoldengate.com/pricing",
+    "eligibility": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learn": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learnPrice": null,
+    "learnSource": "https://www.skydivegoldengate.com/pricing",
+    "learnNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "note": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "rentalNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [],
+    "tandemSource": "https://www.skydivegoldengate.com/pricing",
+    "tandemNote": {
+      "zh": "官网双人跳 USD 269，未注明对应高度；6 人以上每人减 USD 10。200 lb 以上有附加费，超过 240 lb 需先联系。",
+      "en": "Published tandem USD 269; exit altitude is not specified alongside the price. Groups of 6+ save USD 10 each. Surcharge above 200 lb; contact first above 240 lb."
+    },
+    "affGraduateAccepted": false,
+    "tandemPrices": [
+      {
+        "altitude": null,
+        "price": 269,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "官网未将价格绑定出舱高度",
+          "en": "Exit altitude not paired with price on official page"
+        }
+      }
+    ],
+    "liftPrices": [],
+    "altitudeReference": null,
+    "priceYear": 2026,
+    "documentedAudiences": [
+      "tandem"
+    ],
+    "email": "info@skydivegoldengate.com",
+    "operatingHours": {
+      "timeZone": "America/Los_Angeles",
+      "reviewedAt": "2026-11-21",
+      "kind": "business",
+      "source": "https://www.skydivegoldengate.com/contact-us",
+      "weekly": {
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "wed": [],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ]
+      }
+    }
+  },
+  {
+    "id": "skydance",
+    "name": "SkyDance SkyDiving",
+    "city": "Davis",
+    "region": "us-ca-bay-area",
+    "address": "24390 Aviation Avenue, Davis, CA 95616",
+    "coord": [
+      38.5848582,
+      -121.855609
+    ],
+    "phone": "5307532651",
+    "source": "https://skydanceskydiving.com/freefall-options-and-pricing/",
+    "eligSource": "https://skydanceskydiving.com/freefall-options-and-pricing/",
+    "addrSource": "https://skydanceskydiving.com/contact-us/",
+    "minimum": null,
+    "plane": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "planeName": null,
+    "planeSource": "https://skydanceskydiving.com/freefall-options-and-pricing/",
+    "eligibility": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learn": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learnPrice": null,
+    "learnSource": "https://skydanceskydiving.com/freefall-options-and-pricing/",
+    "learnNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "note": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "rentalNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [],
+    "tandemSource": "https://skydanceskydiving.com/freefall-options-and-pricing/",
+    "tandemNote": {
+      "zh": "官网价格为现金或美国借记卡价；现场信用卡和境外借记卡加收 3%。30,000 ft HALO 双人跳目前暂停，不计入可选高度。",
+      "en": "Published prices use cash or domestic debit; on-site credit and foreign debit add 3%. The 30,000 ft HALO tandem program is currently on hold and is not an available altitude."
+    },
+    "affGraduateAccepted": false,
+    "tandemPrices": [
+      {
+        "altitude": 9000,
+        "price": 205,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "仅工作日",
+          "en": "Weekdays only"
+        }
+      },
+      {
+        "altitude": 13000,
+        "price": 265,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "现金／美国借记卡价",
+          "en": "Cash / domestic debit price"
+        }
+      },
+      {
+        "altitude": 18000,
+        "price": 375,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "现金／美国借记卡价",
+          "en": "Cash / domestic debit price"
+        }
+      }
+    ],
+    "liftPrices": [],
+    "altitudeReference": null,
+    "priceYear": 2026,
+    "documentedAudiences": [
+      "tandem"
+    ],
+    "email": "manifest@skydanceskydiving.com",
+    "operatingHours": {
+      "timeZone": "America/Los_Angeles",
+      "reviewedAt": "2026-11-21",
+      "kind": "business",
+      "source": "https://skydanceskydiving.com/contact-us/",
+      "weekly": {
+        "sun": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ],
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "tue": [],
+        "wed": [],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "17:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "08:00",
+            "close": "17:00"
+          }
+        ]
+      }
+    },
+    "tandemStatusSource": "https://skydanceskydiving.com/tandem-halo-skydiving/"
+  },
+  {
+    "id": "norcal",
+    "name": "NorCal Skydiving",
+    "city": "Cloverdale",
+    "region": "us-ca-bay-area",
+    "address": "220A Airport Road, Cloverdale, CA 95425",
+    "coord": [
+      38.7728789,
+      -122.992707
+    ],
+    "phone": "7078942096",
+    "source": "https://norcalskydiving.com/",
+    "eligSource": "https://norcalskydiving.com/",
+    "addrSource": "https://norcalskydiving.com/",
+    "minimum": null,
+    "plane": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "planeName": null,
+    "planeSource": "https://norcalskydiving.com/",
+    "eligibility": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learn": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learnPrice": null,
+    "learnSource": "https://norcalskydiving.com/",
+    "learnNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "note": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "rentalNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [],
+    "tandemSource": "https://norcalskydiving.com/",
+    "tandemNote": {
+      "zh": "Classic Tandem 官网为 12,000 ft／USD 269。预约押金 USD 50；团体有分档折扣。到店体验前需电话或短信确认名额。",
+      "en": "Classic Tandem is published at 12,000 ft / USD 269. USD 50 booking deposit; tiered group discounts. Call or text before walking in to confirm availability."
+    },
+    "affGraduateAccepted": false,
+    "tandemPrices": [
+      {
+        "altitude": 12000,
+        "price": 269,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "200 lb 以上每磅加 USD 1，上限 250 lb",
+          "en": "Above 200 lb: USD 1/lb surcharge; maximum 250 lb"
+        }
+      }
+    ],
+    "liftPrices": [],
+    "altitudeReference": null,
+    "priceYear": 2026,
+    "documentedAudiences": [
+      "tandem"
+    ],
+    "email": "info@norcalskydiving.com",
+    "coordSource": "https://photon.komoot.io/api/?q=NorCal%20Skydiving&limit=3&lat=38&lon=-122"
+  },
+  {
+    "id": "lodi",
+    "name": "Lodi Parachute Center",
+    "city": "Acampo",
+    "region": "us-ca-bay-area",
+    "address": "23597 N. Highway 99, Acampo, CA 95220",
+    "coord": [
+      38.1998502,
+      -121.2641277
+    ],
+    "phone": "2093691128",
+    "source": "https://www.parachutecenter.com/",
+    "eligSource": "https://www.parachutecenter.com/",
+    "addrSource": "https://www.parachutecenter.com/",
+    "minimum": null,
+    "plane": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "planeName": null,
+    "planeSource": "https://www.parachutecenter.com/",
+    "eligibility": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learn": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "learnPrice": null,
+    "learnSource": "https://www.parachutecenter.com/",
+    "learnNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "note": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "rentalNote": {
+      "zh": "尚未整理；请向基地确认",
+      "en": "Not documented in this catalog; confirm with the DZ"
+    },
+    "country": "US",
+    "subdivision": "CA",
+    "currency": "USD",
+    "reviewedAt": "2026-11-21",
+    "policyQuotes": [],
+    "tandemSource": "https://www.parachutecenter.com/",
+    "tandemNote": {
+      "zh": "官网列 12,000 ft／USD 150；另一运营官网写 13,000／13,500 ft，存在高度冲突，出发前确认。独立运营者费用可不同；200 lb 以上另收费。",
+      "en": "Main site lists 12,000 ft / USD 150; another operator site says 13,000 / 13,500 ft, so altitude conflicts require confirmation. Independent operators may charge differently; weight surcharges apply above 200 lb."
+    },
+    "affGraduateAccepted": false,
+    "tandemPrices": [
+      {
+        "altitude": 12000,
+        "price": 150,
+        "alternatePrice": null,
+        "condition": {
+          "zh": "官网未注明报价日期；实际费用需运营者确认",
+          "en": "Undated published rate; confirm current price with operator"
+        }
+      }
+    ],
+    "liftPrices": [],
+    "altitudeReference": null,
+    "priceYear": 2026,
+    "documentedAudiences": [
+      "tandem"
+    ],
+    "operatingHours": {
+      "timeZone": "America/Los_Angeles",
+      "reviewedAt": "2026-11-21",
+      "kind": "business",
+      "source": "https://www.parachutecenter.com/",
+      "weekly": {
+        "sun": [
+          {
+            "open": "09:00",
+            "close": "15:00"
+          }
+        ],
+        "mon": [
+          {
+            "open": "09:00",
+            "close": "15:00"
+          }
+        ],
+        "tue": [
+          {
+            "open": "09:00",
+            "close": "15:00"
+          }
+        ],
+        "wed": [
+          {
+            "open": "09:00",
+            "close": "15:00"
+          }
+        ],
+        "thu": [
+          {
+            "open": "09:00",
+            "close": "15:00"
+          }
+        ],
+        "fri": [
+          {
+            "open": "09:00",
+            "close": "15:00"
+          }
+        ],
+        "sat": [
+          {
+            "open": "09:00",
+            "close": "15:00"
+          }
+        ]
+      }
+    },
+    "tandemStatusSource": "https://skydivelodiparachutecenter.com/",
+    "coordSource": "https://photon.komoot.io/api/?q=Parachute%20Center%20Acampo&limit=3&lat=38&lon=-122"
   }
 ]
