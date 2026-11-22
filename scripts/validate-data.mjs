@@ -45,6 +45,6 @@ export function validateCatalog(root=defaultRoot){
    for(const c of courses){check(idPattern.test(c.id)&&!courseIds.has(c.id),'Invalid/duplicate course id');courseIds.add(c.id);check(localOutdoorIds.has(c.zone),`${c.id}: course points to unknown venue`);check(Number.isInteger(c.min)&&Number.isInteger(c.max)&&c.min>=0&&c.max<=5&&c.min<=c.max,`${c.id}: invalid experience range`);check(['license','skills','camera','wingsuit','balloon','teaching'].includes(c.kind),`${c.id}: invalid course kind`);for(const key of ['title','unit','note','tags'])bi(c[key],`${c.id}.${key}`);price(c.price,c.id);date(c.reviewedAt,c.id);url(c.source,c.id);check(/^[A-Z]{3}$/.test(c.currency),`${c.id}: currency required`);plain(c,c.id);courseCount++}
   }
  }
- const config=read('site/config.json');url(config.repository,'repository');return {regions:regionIds.size,venues:venueCount,courses:courseCount};
+ const config=read('site/config.json');url(config.repository,'repository');url(config.geocodingEndpoint,'geocoding endpoint');return {regions:regionIds.size,venues:venueCount,courses:courseCount};
 }
 if(process.argv[1]&&path.resolve(process.argv[1])===fileURLToPath(import.meta.url))console.log('Catalog valid:',validateCatalog());

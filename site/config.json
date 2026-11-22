@@ -1,3 +1,4 @@
 {
-  "repository": "https://github.com/Orion-Zheng/outdoor-dashboard"
+  "repository": "https://github.com/Orion-Zheng/outdoor-dashboard",
+  "geocodingEndpoint": "https://photon.komoot.io/api/"
 }

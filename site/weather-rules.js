@@ -55,3 +55,30 @@ export function assessWeather(data,context,nowSeconds=Date.now()/1000){
  const tone=danger?'danger':!currentFresh&&!hourlyFresh?'unknown':'caution';
  return {tone,wind,precipitation,visibilityCode,visibility,clouds,currentFresh,hourlyFresh};
 }
+
+// Forecast targets are future valid times, not stale current observations.
+// Freshness applies to retrieval; never run the current-observation age gate on a future hour.
+export function assessForecast(data,context,nowSeconds=Date.now()/1000,retrievedSeconds=nowSeconds){
+ const h=data?.hourly||{},fresh=Number.isFinite(retrievedSeconds)&&nowSeconds-retrievedSeconds<=7200&&nowSeconds-retrievedSeconds>=-3600;
+ const horizonEnd=Math.ceil((nowSeconds+12*3600)/3600)*3600;
+ const times=Array.isArray(h.time)?h.time:[];
+ const indices=times.map((time,index)=>({time,index})).filter(p=>Number.isFinite(p.time)&&p.time>nowSeconds&&p.time<=horizonEnd).sort((a,b)=>a.time-b.time).filter((p,i,all)=>i===0||p.time!==all[i-1].time);
+ const points=indices.map(({time,index})=>{
+  const at=key=>h[key]?.[index],code=at('weather_code'),amount=at('precipitation');
+  const wind=assessWind({wind:at('wind_speed_10m'),gust:at('wind_gusts_10m'),role:context.role,level:context.level,ageSeconds:fresh?0:Infinity});
+  const precipitation=[95,96,99].includes(code)?'thunder':[51,53,55,56,57,61,63,65,66,67,71,73,75,77,80,81,82,85,86].includes(code)||(Number.isFinite(amount)&&amount>0)?'precipitation':[45,48].includes(code)?'fog':[0,1,2,3].includes(code)&&amount===0?'none':'missing';
+  const visibility=at('visibility'),visibilityCode=!Number.isFinite(visibility)||visibility<0?'missing':visibility<3*STATUTE_MILE_M?'below3':visibility<5*STATUTE_MILE_M?'below5':'atLeast5';
+  const cover=at('cloud_cover'),probability=at('precipitation_probability'),signals=[];
+  if(['thunder','precipitation','fog'].includes(precipitation))signals.push(precipitation);
+  if(wind.tone==='danger')signals.push('wind');
+  if(visibilityCode==='below3')signals.push('visibility');
+  const incomplete=wind.tone==='unknown'||precipitation==='missing'||visibilityCode==='missing'||!Number.isFinite(cover);
+  const tone=!fresh?'unknown':signals.length?'danger':incomplete?'unknown':visibilityCode==='below5'||code===3||cover>=80?'caution':'neutral';
+  return {time,tone,signals:fresh?signals:[],wind,windSpeed:at('wind_speed_10m'),gust:at('wind_gusts_10m'),windDirection:at('wind_direction_10m'),weatherCode:code,precipitation,amount,probability:Number.isFinite(probability)&&probability>=0&&probability<=100?probability:null,visibility,visibilityCode,cloudCover:cover,isDay:at('is_day'),temperature:at('temperature_2m'),incomplete};
+ });
+ const arrival=Number.isFinite(context.driveDurationSeconds)&&context.driveDurationSeconds>=0?nowSeconds+context.driveDurationSeconds:null;
+ const arrivalIndex=arrival===null?-1:points.findIndex(p=>p.time>=arrival);
+ const firstDanger=points.find(p=>p.tone==='danger'),afterArrival=arrival===null?null:points.find(p=>p.time>=arrival&&p.tone==='danger');
+ const probabilities=points.map(p=>p.probability).filter(Number.isFinite);
+ return {points,fresh,partial:points.length<12||points.some(p=>p.incomplete),tone:!fresh||!points.length?'unknown':firstDanger?'danger':points.some(p=>p.tone==='caution'||p.tone==='unknown')?'caution':'neutral',firstDanger,afterArrival,arrival,arrivalIndex,maxProbability:probabilities.length?Math.max(...probabilities):null};
+}

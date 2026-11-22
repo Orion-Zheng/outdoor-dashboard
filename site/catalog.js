@@ -14,7 +14,7 @@ export async function loadCatalog(){
    const [region,zones,courses,indoor]=await Promise.all(['region','venues','courses','indoor'].map(name=>read(base+name+'.json')));
    return {region,zones,courses,indoor};
   }));
-  return {regions:entries.map(e=>e.region),zones:entries.flatMap(e=>e.zones),courses:entries.flatMap(e=>e.courses),indoorVenues:entries.flatMap(e=>e.indoor),repository:config.repository};
+  return {regions:entries.map(e=>e.region),zones:entries.flatMap(e=>e.zones),courses:entries.flatMap(e=>e.courses),indoorVenues:entries.flatMap(e=>e.indoor),repository:config.repository,geocodingEndpoint:config.geocodingEndpoint};
  }catch(error){
   document.querySelector('#app').textContent='资料暂时无法加载。请刷新重试。 / Unable to load information. Please reload.';
   throw error;

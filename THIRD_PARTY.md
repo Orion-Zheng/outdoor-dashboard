@@ -22,3 +22,5 @@ Map imagery is requested on demand from third-party services; no tile datasets a
 - [Esri World Imagery](https://services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer), Source: Esri, Vantor, Earthstar Geographics and the GIS User Community.
 - [OSRM public routing service](https://github.com/Project-OSRM/osrm-backend/wiki/Demo-server), OpenStreetMap data, service sponsored by FOSSGIS. Best effort, modest non-commercial use, maximum one request/second.
 - [Open-Meteo](https://open-meteo.com/), weather model API with attribution and original-query links.
+
+- [Photon geocoder](https://github.com/komoot/photon), public API operated by komoot, OpenStreetMap data. Explicit, cached searches with a reasonable request rate; public availability is not guaranteed. Candidate selection precedes routing.
